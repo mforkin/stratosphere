@@ -4,7 +4,7 @@ Build for Altitude and Artistry
 
 * [Background](http://en.wikipedia.org/wiki/R%C3%BCppell's_Vulture)
 
-## Tips
+* Check out our [Wiki](https://gitlab.com/mforkin/ruppell-rpi-cam/wikis/home) for detailed information about our project
 
-* get python3 for the picamera sudo apt-get install python3
+### Build information
 
