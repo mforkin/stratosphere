@@ -1,4 +1,4 @@
-We have three main directories
+# Architecture
 
 * flightcomputer
    * Main entry point, responsible for running missions
@@ -10,3 +10,6 @@ We have three main directories
       * Make sure to implement __init__ and run functions
    * These will be interacting with our component classes to get relevant information and then applying logic to do cool stuff.
 
+# Running it
+
+* To run the flight computer just do `python3 path/to/FlightComputerController.py`
