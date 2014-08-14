@@ -1,5 +1,6 @@
 import picamera
-from src.missions import TestMissions
+from src.components.gps import GPSController
+from src.missions import TestMissions, TestGPSMission
 class FlightComputer(object):
     def __init__(self, components={}, missions=[]):
         self.components = components
@@ -14,8 +15,10 @@ class FlightComputer(object):
 def main():
     components = {}
     components['camera'] = picamera.PiCamera()
+    components['gps'] = GPSController.GPSModule()
     missions = []
     missions.append(TestMissions.CameraTestMission())
+    missions.append(TestGPSMission.GPSMissionTest())
     fc = FlightComputer(components, missions)
     fc.runMissions()
     components.get('camera').close()
