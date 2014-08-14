@@ -18,7 +18,7 @@ def main():
     components['gps'] = GPSController.GPSModule()
     missions = []
     missions.append(TestMissions.CameraTestMission())
-    missions.append(TestGPSMission.GPSMissionTest())
+    #missions.append(TestGPSMission.GPSMissionTest())
     fc = FlightComputer(components, missions)
     fc.runMissions()
     components.get('camera').close()
