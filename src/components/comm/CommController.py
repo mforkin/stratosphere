@@ -4,12 +4,16 @@ import serial
 
 ser = serial.Serial('/dev/tty.usbserial-62', 9600)
 
-
+data = ""
 
 while True:
     try:
         response = ser.read()
-        print response
+        if response == ":":
+            print response
+            data = ""
+        else:
+            data += response
     except KeyboardInterrupt:
         break
 
