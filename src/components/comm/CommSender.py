@@ -5,11 +5,11 @@ import time
 
 ser = serial.Serial('/dev/ttyUSB0', 9600)
 
-xbee = XBee(ser)
+
 
 while True:
     try:
-        xbee.at(frame='A', command='MY')
+        ser.write("Hello World")
         time.sleep(2)
     except KeyboardInterrupt:
         break

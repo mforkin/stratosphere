@@ -2,13 +2,13 @@ from xbee import XBee
 
 import serial
 
-ser = serial.Serial('/dev/ttyUSB0', 9600)
+ser = serial.Serial('/dev/tty.usbserial-62', 9600)
 
-xbee = XBee(ser)
+
 
 while True:
     try:
-        response = xbee.wait_read_frame()
+        response = ser.read()
         print response
     except KeyboardInterrupt:
         break
