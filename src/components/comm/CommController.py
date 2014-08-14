@@ -10,7 +10,7 @@ while True:
     try:
         response = ser.read()
         if response == ":":
-            print response
+            print data
             data = ""
         else:
             data += response
