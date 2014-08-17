@@ -1,0 +1,19 @@
+{
+  "name": "missioncontrol",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.2.13",
+    "angular-mocks": "~1.2.13",
+    "angular-route": "~1.2.13",
+    "angular-animate": "~1.2.13",
+    "angular-resource": "~1.2.13",
+    "bootstrap": "~3.1.1",
+    "jquery": "~2.1.0",
+    "font-awesome": "~4.0.3",
+    "lodash": "~2.4.1",
+    "sonic.js": "git@github.com:ccri/sonic.js.git#v0.5.x",
+    "leaflet-dist": "~0.7.2",
+    "leaflet-providers": "~1.0.1",
+    "momentjs": "~2.5.1"
+  }
+}
