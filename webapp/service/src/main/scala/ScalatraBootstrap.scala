@@ -1,3 +1,6 @@
+import com.eventhorizon.missioncontrol.db.DataAccess
+import com.eventhorizon.missioncontrol.db.DataAccess.DefaultQueryCache
+import com.eventhorizon.missioncontrol.db.DataAccess.InMemoryQueryCache
 import com.eventhorizon.missioncontrol.api.DataAPI
 import com.typesafe.config.ConfigFactory
 import org.scalatra._
@@ -22,7 +25,19 @@ class DefaultServlet extends ScalatraServlet with ScalateSupport {
 
 class ScalatraBootstrap extends LifeCycle {
   override def init(context: ServletContext) {
+    val conf = ConfigFactory.load()
+    val dbFactory = DataAccess.getJndiDBPool(conf.getConfig("db"))
+
+    trait CachingDataAccess extends DataAccess {
+      val db = dbFactory
+      val cache = new InMemoryQueryCache
+    }
+
+    trait NonCachingDataAccess extends DataAccess {
+      val db = dbFactory
+      val cache = new DefaultQueryCache
+    }
     context.mount(new DefaultServlet, "/", "missioncontrol")
-    context.mount(new DataAPI {}, "/rest/data", "missioncontrol/data")
+    context.mount(new DataAPI with NonCachingDataAccess, "/rest/data", "missioncontrol/data")
   }
 }

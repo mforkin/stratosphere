@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>missioncontrol</artifactId>
-        <groupId>com.eventhorizon</groupId>
+        <groupId>com.eventhorizon.missioncontrol</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -20,9 +20,6 @@
                 <filtering>false</filtering>
             </resource>
             <resource>
-                <includes>
-                    <include>application.conf</include>
-                </includes>
                 <directory>src/main/resources-filter</directory>
                 <filtering>true</filtering>
             </resource>
@@ -505,8 +502,27 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.eventhorizon.missioncontrol</groupId>
+            <artifactId>database</artifactId>
+            <version>${project.parent.version}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-scala</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-pool</groupId>
+            <artifactId>commons-pool</artifactId>
+            <version>${commons-pool.version}</version>
         </dependency>
         <dependency>
             <groupId>org.scalatra</groupId>
@@ -567,6 +583,12 @@
             <artifactId>phantomjs</artifactId>
             <classifier>${phantomjs.classifier}</classifier>
             <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 </project>
