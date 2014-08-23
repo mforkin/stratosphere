@@ -33,7 +33,7 @@
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.0.0.M4</version>
+                <version>${jetty.version}</version>
                 <configuration>
                     <scanIntervalSeconds>10</scanIntervalSeconds>
                     <webApp>
@@ -536,7 +536,7 @@
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
+            <artifactId>javax.servlet-api</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -546,15 +546,24 @@
         </dependency>
         <dependency>
             <groupId>org.scalatra</groupId>
-            <artifactId>scalatra-json_2.10</artifactId>
+            <artifactId>scalatra-json_${scala.major.version}</artifactId>
         </dependency>
         <dependency>
             <groupId>org.scalatra</groupId>
             <artifactId>scalatra-scalate_${scala.major.version}</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.scalatra</groupId>
+            <artifactId>scalatra-atmosphere_${scala.major.version}</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty.websocket</groupId>
+            <artifactId>websocket-server</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>org.json4s</groupId>
-            <artifactId>json4s-jackson_2.10</artifactId>
+            <artifactId>json4s-jackson_${scala.major.version}</artifactId>
         </dependency>
         <dependency>
             <groupId>com.typesafe</groupId>
@@ -587,8 +596,41 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
-            <version>${slf4j.version}</version>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.clapper</groupId>
+            <artifactId>grizzled-slf4j_${scala.major.version}</artifactId>
+            <version>${log.grizzled.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback-classic.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-scala</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
         </dependency>
     </dependencies>
 </project>

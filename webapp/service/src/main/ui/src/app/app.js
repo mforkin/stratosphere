@@ -1,6 +1,7 @@
 angular.module('missioncontrol', [
     'ngRoute',
     'ngAnimate',
+    'ngResource',
     'templates-app',
     'missioncontrol.home'
 ])

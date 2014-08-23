@@ -21,6 +21,13 @@ module.exports = function (grunt) {
         // '<%= compileDir %>'
     ]);
 
+    grunt.config('unzip', {
+        sonic: {
+            src: 'vendor/bower/sonic.js/sonic.js.zip',
+            dest: 'vendor/bower/'
+        }
+    });
+
     // COPY
     grunt.config('copy', {
         build_app_assets: {
@@ -249,6 +256,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         // 'clean',
+        'unzip:sonic',
         'html2js',
         'jshint',
         'karmaconfig',

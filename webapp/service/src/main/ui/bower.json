@@ -14,6 +14,8 @@
     "sonic.js": "git@github.com:ccri/sonic.js.git#v0.5.x",
     "leaflet-dist": "~0.7.2",
     "leaflet-providers": "~1.0.1",
-    "momentjs": "~2.5.1"
+    "momentjs": "~2.5.1",
+    "atmosphere": "2.1.x",
+    "d3": "~3.4.4"
   }
 }

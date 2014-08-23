@@ -27,6 +27,14 @@ CREATE TABLE public.metrics(
 )
 WITH (OIDS=FALSE);
 
+CREATE TABLE public.images(
+    filename varchar(511),
+    image bytea,
+    image_timestamp timestamp,
+    CONSTRAINT ei_pk PRIMARY KEY (filename)
+)
+WITH (OIDS=FALSE);
+
 ALTER TABLE public.authorities ADD CONSTRAINT fk_authorities_users FOREIGN KEY (username)
 REFERENCES public.users (username) MATCH FULL
 ON DELETE NO ACTION ON UPDATE NO ACTION NOT DEFERRABLE;

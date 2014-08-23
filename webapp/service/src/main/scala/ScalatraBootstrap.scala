@@ -2,6 +2,7 @@ import com.eventhorizon.missioncontrol.db.DataAccess
 import com.eventhorizon.missioncontrol.db.DataAccess.DefaultQueryCache
 import com.eventhorizon.missioncontrol.db.DataAccess.InMemoryQueryCache
 import com.eventhorizon.missioncontrol.api.DataAPI
+import com.eventhorizon.missioncontrol.service.IngestService
 import com.typesafe.config.ConfigFactory
 import org.scalatra._
 import javax.servlet.ServletContext
@@ -39,5 +40,7 @@ class ScalatraBootstrap extends LifeCycle {
     }
     context.mount(new DefaultServlet, "/", "missioncontrol")
     context.mount(new DataAPI with NonCachingDataAccess, "/rest/data", "missioncontrol/data")
+
+    IngestService.initIngestion()
   }
 }

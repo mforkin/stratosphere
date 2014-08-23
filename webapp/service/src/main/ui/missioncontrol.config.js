@@ -39,21 +39,24 @@ module.exports = {
             'vendor/bower/angular-route/angular-route.js',
             'vendor/bower/angular-animate/angular-animate.js',
             'vendor/bower/angular-resource/angular-resource.js',
-            'vendor/bower/sonic.js/lib/queue-async/queue.min.js',
-            'vendor/bower/sonic.js/lib/topojson.js',
-            'vendor/bower/sonic.js/lib/d3/lib/colorbrewer/colorbrewer.js',
-            'vendor/bower/sonic.js/lib/d3/d3.min.js',
-            'vendor/bower/sonic.js/sonic.js',
+            //'vendor/bower/sonic.js/lib/queue-async/queue.min.js',
+            //'vendor/bower/sonic.js/lib/topojson.js',
+            //'vendor/bower/sonic.js/lib/d3/lib/colorbrewer/colorbrewer.js',
+            //'vendor/bower/sonic.js/lib/d3/d3.min.js',
+            'vendor/bower/d3/d3.min.js',
+            'vendor/bower/sonic.js/dist/sonic.js',
             'vendor/bower/leaflet-dist/leaflet.js',
             'vendor/bower/leaflet-providers/leaflet-providers.js',
             'vendor/bower/momentjs/moment.js',
+            'vendor/bower/atmosphere/atmosphere.js',
             // TODO - test only
             'vendor/bower/angular-mocks/angular-mocks.js',
         ],
         css: [],
         assets: [
             'vendor/bower/font-awesome/fonts/*',
-            'vendor/bower/bootstrap/fonts/*'
+            'vendor/bower/bootstrap/fonts/*',
+            'vendor/bower/leaflet-dist/images/*'
         ]
     }
 }
