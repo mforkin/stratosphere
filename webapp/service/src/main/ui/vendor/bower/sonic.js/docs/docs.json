@@ -1,0 +1,3289 @@
+{
+    "Area": {
+        "addArea(config)": {
+            "config": "defaults", 
+            "description": "Adds area components to the visualization", 
+            "example": "defaults"
+        }, 
+        "addAreas(config)": {
+            "config": "defaults", 
+            "description": "Adds area components to the visualization", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "basic", 
+                    "description": "Type of area chart. Options are \"basic\" or \"stacked\".", 
+                    "name": "type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "linear", 
+                    "description": "How lines making edge of area should be interpolated. Options are \"linear\" or \"basis\".", 
+                    "name": "interpolator", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "zero", 
+                    "description": "How the stack should be calculated. Options are \"zero\", \"silhouette\", \"wiggle\", \"expand\" and \"function\". See d3 docs for more information.", 
+                    "name": "offset", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "auto", 
+                    "description": "A unique id for this area. Auto generated if not provided. Specify this if you want to find this area group later.", 
+                    "name": "id", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "", 
+                    "description": "Set of css classes to add to the area. Ex: \"someclass1 someclass2\"", 
+                    "name": "cls", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "id", 
+                    "description": "The property on each data point that makes it unique.", 
+                    "name": "definedDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "x", 
+                    "description": "The property on each data point used for the x-axis value.", 
+                    "name": "xDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "y", 
+                    "description": "The property on each data point used for the y-axis value.", 
+                    "name": "yDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The id of the xScale to be used with this area. If not specified, sonic will find a scale that shares the same xDataKey", 
+                    "name": "xScaleId", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The id of the yScale to be used with this area. If not specified, sonic will find a scale that shares the same yDataKey", 
+                    "name": "yScaleId", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Array of series keys that indicate which series should be represented as areas. Ex. \"areaKey\" or [\"areaKey\"] or [\"areaKey1\", \"areaKey2\"]", 
+                    "name": "seriesKeys", 
+                    "type": "String or Array[String]"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Array of series indexes that indicate which series should be represented as areas. Ex. 1 or [1] or [0, 1]", 
+                    "name": "seriesIndexes", 
+                    "type": "Int or Array[Int]"
+                }, 
+                {
+                    "default": "black", 
+                    "description": "The color of the edge of the area. Any hex code or color string will work. If series data specifies a color property then that will override this specification. Ex. \"black\", \"#000000\".", 
+                    "name": "stroke", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The color of the area. Any hex code or color string will work. If series data specifies a color property then that will override this specification. Ex. \"black\", \"#000000\".", 
+                    "name": "fill", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "#FFF", 
+                    "description": "The starting fill for the area. This allows a fade in effect when the area is first drawn. Ex. \"white\", \"#FFF\"", 
+                    "name": "startingFill", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "false", 
+                    "description": "Whether to sort the data before rendering. Unsorted data can result is weird looking lines since lines connect points in order.", 
+                    "name": "sort", 
+                    "type": "boolean"
+                }, 
+                {
+                    "default": "{duration: null, delay: null}", 
+                    "description": "Controls animation of area. If not set will fall back to general viz animiation settings. Ex. {duration: 1000, delay: 1000}", 
+                    "name": "animation", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "1", 
+                    "description": "The width of the edge of the area.", 
+                    "name": "strokeWidth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "1", 
+                    "description": "The opacity of the area fill", 
+                    "name": "fillOpacity", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The configuration for the area tooltip. Properties are type, buffer, renderFn. See below for more info on these properties.", 
+                    "name": "tooltip", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "grouped", 
+                    "description": "Whether this component should render content to a grouped tooltip or to a global tooltip. Values are \"grouped\" and \"global\"", 
+                    "name": "tooltip.type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{type: \"value\", amount: null}", 
+                    "description": "Specifies how far from a point the mouse can be and still register a tooltip. Properties are type and value. Type values are \"value\" or \"pixel\", specifying if distance should be based on mouse pixel location or value at location of mouse. Amount is a value or pixel amount that specifies the buffer region.", 
+                    "name": "tooltip.buffer", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "This function returns a string that will populate the tooltip. The function accepts an array of closest points and the current mouse position.", 
+                    "name": "tooltip.renderFn", 
+                    "type": "Function(Array[Obj], MousePosition[x,y])"
+                }
+            ], 
+            "example": "area.example.html"
+        }, 
+        "removeArea(searchParams)": {
+            "config": "defaults", 
+            "description": "Removes an area component based on search params. Search params map to config properties.", 
+            "example": "defaults"
+        }, 
+        "updateArea(searchParams config)": {
+            "config": "defaults", 
+            "description": "Updates an area component found by search params with the new configurations.", 
+            "example": "defaults"
+        }
+    }, 
+    "Axes": {
+        "addAxis(config)": {
+            "config": "defaults", 
+            "description": "Adds an axis component to the visualization.", 
+            "example": "defaults"
+        }, 
+        "addXAxis(config)": {
+            "config": "defaults", 
+            "description": "Adds an x axis component to the visualization.", 
+            "example": "defaults"
+        }, 
+        "addYAxis(config)": {
+            "config": [
+                {
+                    "default": "left", 
+                    "description": "Where the axis should be draw in relation to the viz body. Values are \"top\", \"bottom\", \"left\" and \"right\"", 
+                    "name": "pos", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will position the axis accordingly. The array should specify a min and max position as percentages of the viz body. Ex. [0.25, 0.75]", 
+                    "name": "range", 
+                    "type": "Array[Float]"
+                }, 
+                {
+                    "default": "y", 
+                    "description": "CSS classes to be added to the axis.", 
+                    "name": "cls", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "y", 
+                    "description": "The properties each data point uses as its scale value", 
+                    "name": "dataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "linear", 
+                    "description": "The type of data that the scale represents. Values are \"linear\", \"time\", \"ordinal\"", 
+                    "name": "type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{scale: null, value: null}", 
+                    "description": "If you want to pin the position of this scale to an intersection scale, specify the scale and value here.", 
+                    "name": "pinTo", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{dx: null, dy: null}", 
+                    "description": "Offset the axis by the amount specified in dx and dy", 
+                    "name": "offset", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "see tick config options", 
+                    "description": "This objects contains configuration options for the ticks displayed along the axis", 
+                    "name": "ticks", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "true", 
+                    "description": "Whether or not to show the tick labels.", 
+                    "name": "ticks.showLabels", 
+                    "type": "boolean"
+                }, 
+                {
+                    "default": "undefined", 
+                    "description": "If set will specify the number of ticks to display.", 
+                    "name": "ticks.count", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "80", 
+                    "description": "The minimum amount of spacing needed between ticks along a horizontally oriented axis.", 
+                    "name": "ticks.minHorizSpacing", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "30", 
+                    "description": "The minimum amount of spacing needed between ticks along a vertically oriented axis.", 
+                    "name": "ticks.minVertSpacing", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The amount of padding between the axis and the tick start", 
+                    "name": "ticks.padding", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The format function for ticks. The function accepts a tick value and returns a transformation of that value to be displayed along the axis.", 
+                    "name": "ticks.formatFn", 
+                    "type": "Function (tick)"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will put this number of subticks in between major ticks on the axis.", 
+                    "name": "ticks.subdivide", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If set will override calculated values and explicitly set tick values.", 
+                    "name": "ticks.values", 
+                    "type": "Array[]"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Explicitly sets the minimum tick value.", 
+                    "name": "ticks.min", 
+                    "type": "any"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Explicitly set the maximum tick value.", 
+                    "name": "ticks.max", 
+                    "type": "any"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If ticks are over a continuous scale, you can snap the ticks to rounded values. Options are \"integer\" or \"day\"", 
+                    "name": "ticks.snapTo", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified, will rotate the ticks by the specified amount.", 
+                    "name": "ticks.rotate", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Will anchor the tick labels based on specification. Values are \"start\" or \"end\"", 
+                    "name": "ticks.textAnchor", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will offset the tick label.", 
+                    "name": "ticks.dx", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will offset the tick label.", 
+                    "name": "ticks.dy", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "see label config options", 
+                    "description": "This object contains configuration options for the lbels display with the axis", 
+                    "name": "label", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The text for the axis label", 
+                    "name": "label.text", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "middle", 
+                    "description": "Where along the axis the label appears", 
+                    "name": "label.pos", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "How much to rotate the label. If not specified rotation values are calculated automatically.", 
+                    "name": "label.rotate", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will place the label absolutely.", 
+                    "name": "label.x", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will place the label absolutely.", 
+                    "name": "label.y", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will offset the label relative to axis.", 
+                    "name": "label.dx", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will offset the label relative to axis.", 
+                    "name": "label.dy", 
+                    "type": "float"
+                }
+            ], 
+            "description": "Adds a y axis component to the visualization.", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "bottom", 
+                    "description": "Where the axis should be draw in relation to the viz body. Values are \"top\", \"bottom\", \"left\" and \"right\"", 
+                    "name": "pos", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will position the axis accordingly. The array should specify a min and max position as percentages of the viz body. Ex. [0.25, 0.75]", 
+                    "name": "range", 
+                    "type": "Array[Float]"
+                }, 
+                {
+                    "default": "x", 
+                    "description": "CSS classes to be added to the axis.", 
+                    "name": "cls", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "x", 
+                    "description": "The properties each data point uses as its scale value", 
+                    "name": "dataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "linear", 
+                    "description": "The type of data that the scale represents. Values are \"linear\", \"time\", \"ordinal\"", 
+                    "name": "type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{scale: null, value: null}", 
+                    "description": "If you want to pin the position of this scale to an intersection scale, specify the scale and value here.", 
+                    "name": "pinTo", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{dx: null, dy: null}", 
+                    "description": "Offset the axis by the amount specified in dx and dy", 
+                    "name": "offset", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The minimum value of the axis", 
+                    "name": "min", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The maximum value of the axis", 
+                    "name": "max", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "see tick config options", 
+                    "description": "This objects contains configuration options for the ticks displayed along the axis", 
+                    "name": "ticks", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "true", 
+                    "description": "Whether or not to show the tick labels.", 
+                    "name": "ticks.showLabels", 
+                    "type": "boolean"
+                }, 
+                {
+                    "default": "undefined", 
+                    "description": "If set will specify the number of ticks to display.", 
+                    "name": "ticks.count", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "80", 
+                    "description": "The minimum amount of spacing needed between ticks along a horizontally oriented axis.", 
+                    "name": "ticks.minHorizSpacing", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "30", 
+                    "description": "The minimum amount of spacing needed between ticks along a vertically oriented axis.", 
+                    "name": "ticks.minVertSpacing", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The amount of padding between the axis and the tick start", 
+                    "name": "ticks.padding", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The format function for ticks. The function accepts a tick value and returns a transformation of that value to be displayed along the axis.", 
+                    "name": "ticks.formatFn", 
+                    "type": "Function (tick)"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will put this number of subticks in between major ticks on the axis.", 
+                    "name": "ticks.subdivide", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If set will override calculated values and explicitly set tick values.", 
+                    "name": "ticks.values", 
+                    "type": "Array[]"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Explicitly sets the minimum tick value.", 
+                    "name": "ticks.min", 
+                    "type": "any"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Explicitly set the maximum tick value.", 
+                    "name": "ticks.max", 
+                    "type": "any"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If ticks are over a continuous scale, you can snap the ticks to rounded values. Options are \"integer\" or \"day\"", 
+                    "name": "ticks.snapTo", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified, will rotate the ticks by the specified amount.", 
+                    "name": "ticks.rotate", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Will anchor the tick labels based on specification. Values are \"start\" or \"end\"", 
+                    "name": "ticks.textAnchor", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will offset the tick label.", 
+                    "name": "ticks.dx", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will offset the tick label.", 
+                    "name": "ticks.dy", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "sort asc", 
+                    "description": "A function that takes two data points and returns which is bigger. Should correspond to axis type.", 
+                    "name": "ticks.sort", 
+                    "type": "Function(a, b)"
+                }, 
+                {
+                    "default": "see label config options", 
+                    "description": "This object contains configuration options for the lbels display with the axis", 
+                    "name": "label", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The text for the axis label", 
+                    "name": "label.text", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "middle", 
+                    "description": "Where along the axis the label appears", 
+                    "name": "label.pos", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "How much to rotate the label. If not specified rotation values are calculated automatically.", 
+                    "name": "label.rotate", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will place the label absolutely.", 
+                    "name": "label.x", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will place the label absolutely.", 
+                    "name": "label.y", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will offset the label relative to axis.", 
+                    "name": "label.dx", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will offset the label relative to axis.", 
+                    "name": "label.dy", 
+                    "type": "float"
+                }
+            ], 
+            "example": "line.example.html"
+        }, 
+        "removeAxis(searchParams)": {
+            "config": "defaults", 
+            "description": "Removes an axis based on the passed searchParams.", 
+            "example": "defaults"
+        }, 
+        "updateAxis(searchParams, config)": {
+            "config": "defaults", 
+            "description": "Updates the axis found based on the searchParams with the passed configuration.", 
+            "example": "defaults"
+        }, 
+        "updateYAxis(searchParams, config)": {
+            "config": [
+                {
+                    "default": "left", 
+                    "description": "Where the axis should be draw in relation to the viz body. Values are \"top\", \"bottom\", \"left\" and \"right\"", 
+                    "name": "pos", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will position the axis accordingly. The array should specify a min and max position as percentages of the viz body. Ex. [0.25, 0.75]", 
+                    "name": "range", 
+                    "type": "Array[Float]"
+                }, 
+                {
+                    "default": "y", 
+                    "description": "CSS classes to be added to the axis.", 
+                    "name": "cls", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "y", 
+                    "description": "The properties each data point uses as its scale value", 
+                    "name": "dataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "linear", 
+                    "description": "The type of data that the scale represents. Values are \"linear\", \"time\", \"ordinal\"", 
+                    "name": "type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{scale: null, value: null}", 
+                    "description": "If you want to pin the position of this scale to an intersection scale, specify the scale and value here.", 
+                    "name": "pinTo", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{dx: null, dy: null}", 
+                    "description": "Offset the axis by the amount specified in dx and dy", 
+                    "name": "offset", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "see tick config options", 
+                    "description": "This objects contains configuration options for the ticks displayed along the axis", 
+                    "name": "ticks", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "true", 
+                    "description": "Whether or not to show the tick labels.", 
+                    "name": "ticks.showLabels", 
+                    "type": "boolean"
+                }, 
+                {
+                    "default": "undefined", 
+                    "description": "If set will specify the number of ticks to display.", 
+                    "name": "ticks.count", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "80", 
+                    "description": "The minimum amount of spacing needed between ticks along a horizontally oriented axis.", 
+                    "name": "ticks.minHorizSpacing", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "30", 
+                    "description": "The minimum amount of spacing needed between ticks along a vertically oriented axis.", 
+                    "name": "ticks.minVertSpacing", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The amount of padding between the axis and the tick start", 
+                    "name": "ticks.padding", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The format function for ticks. The function accepts a tick value and returns a transformation of that value to be displayed along the axis.", 
+                    "name": "ticks.formatFn", 
+                    "type": "Function (tick)"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will put this number of subticks in between major ticks on the axis.", 
+                    "name": "ticks.subdivide", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If set will override calculated values and explicitly set tick values.", 
+                    "name": "ticks.values", 
+                    "type": "Array[]"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Explicitly sets the minimum tick value.", 
+                    "name": "ticks.min", 
+                    "type": "any"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Explicitly set the maximum tick value.", 
+                    "name": "ticks.max", 
+                    "type": "any"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If ticks are over a continuous scale, you can snap the ticks to rounded values. Options are \"integer\" or \"day\"", 
+                    "name": "ticks.snapTo", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified, will rotate the ticks by the specified amount.", 
+                    "name": "ticks.rotate", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Will anchor the tick labels based on specification. Values are \"start\" or \"end\"", 
+                    "name": "ticks.textAnchor", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will offset the tick label.", 
+                    "name": "ticks.dx", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will offset the tick label.", 
+                    "name": "ticks.dy", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "see label config options", 
+                    "description": "This object contains configuration options for the lbels display with the axis", 
+                    "name": "label", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The text for the axis label", 
+                    "name": "label.text", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "middle", 
+                    "description": "Where along the axis the label appears", 
+                    "name": "label.pos", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "How much to rotate the label. If not specified rotation values are calculated automatically.", 
+                    "name": "label.rotate", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will place the label absolutely.", 
+                    "name": "label.x", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will place the label absolutely.", 
+                    "name": "label.y", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will offset the label relative to axis.", 
+                    "name": "label.dx", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If specified will offset the label relative to axis.", 
+                    "name": "label.dy", 
+                    "type": "float"
+                }
+            ], 
+            "description": "Adds a y axis component to the visualization.", 
+            "example": "defaults"
+        }
+    }, 
+    "Bars": {
+        "defaults": {
+            "config": [
+                {
+                    "default": "grouped", 
+                    "description": "The type of bars to draw. Values are \"stacked\" or \"grouped\".", 
+                    "name": "type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "auto", 
+                    "description": "A unique id for this bar. Auto generated if not provided. Specify this if you want to find this bar group later.", 
+                    "name": "id", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "", 
+                    "description": "Set of css classes to add to the bar. Ex: \"someclass1 someclass2\"", 
+                    "name": "cls", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "id", 
+                    "description": "The property on each data point that makes it unique.", 
+                    "name": "definedDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "x", 
+                    "description": "The property on each data point used for the x-axis value.", 
+                    "name": "xDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "y", 
+                    "description": "The property on each data point used for the y-axis value.", 
+                    "name": "yDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The id of the xScale to be used with this bar. If not specified, sonic will find a scale that shares the same xDataKey", 
+                    "name": "xScaleId", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The id of the yScale to be used with this bar. If not specified, sonic will find a scale that shares the same yDataKey", 
+                    "name": "yScaleId", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Array of series keys that indicate which series should be represented as areas. Ex. \"barKey\" or [\"barKey\"] or [\"barKey1\", \"barKey2\"]", 
+                    "name": "seriesKeys", 
+                    "type": "String or Array[String]"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Array of series indexes that indicate which series should be represented as bars. Ex. 1 or [1] or [0, 1]", 
+                    "name": "seriesIndexes", 
+                    "type": "Int or Array[Int]"
+                }, 
+                {
+                    "default": "black", 
+                    "description": "The color of the edge of the bars. Any hex code or color string will work. If series data specifies a color property then that will override this specification. Ex. \"black\", \"#000000\".", 
+                    "name": "stroke", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The color of the bar. Any hex code or color string will work. If series data specifies a color property then that will override this specification. Ex. \"black\", \"#000000\".", 
+                    "name": "fill", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{duration: null, delay: null}", 
+                    "description": "Controls animation of bars. If not set will fall back to general viz animiation settings. Ex. {duration: 1000, delay: 1000}", 
+                    "name": "animation", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "1", 
+                    "description": "The width of the edge of the bar.", 
+                    "name": "strokeWidth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "1", 
+                    "description": "The opacity of the bar fill", 
+                    "name": "fillOpacity", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The configuration for the bar tooltip. Properties are type, buffer, renderFn. See below for more info on these properties.", 
+                    "name": "tooltip", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "grouped", 
+                    "description": "Whether this component should render content to a grouped tooltip or to a global tooltip. Values are \"grouped\" and \"global\"", 
+                    "name": "tooltip.type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{type: 'value', amount: null}", 
+                    "description": "Specifies how far from a point the mouse can be and still register a tooltip. Properties are type and value. Type values are \"value\" or \"pixel\", specifying if distance should be based on mouse pixel location or value at location of mouse. Amount is a value or pixel amount that specifies the buffer region.", 
+                    "name": "tooltip.buffer", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "This function returns a string that will populate the tooltip. The function accepts an array of closest points and the current mouse position.", 
+                    "name": "tooltip.renderFn", 
+                    "type": "Function(Array[Obj], MousePosition[x,y])"
+                }, 
+                {
+                    "default": "center", 
+                    "description": "Where to position the bars relative to the position of the point they represent. Values are \"left\", \"right\", \"center\"", 
+                    "name": "barPosition", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "8", 
+                    "description": "The minimum bar width allowable. The calculated bar width will never drop below this threshold.", 
+                    "name": "minBarWidth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "50", 
+                    "description": "The maximum bar width allowable. The calculated bar width will never exceed this.", 
+                    "name": "maxBarWidth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Specify this to explicitly set the bar width.", 
+                    "name": "barWidth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "0", 
+                    "description": "Padding between bars in a single group.", 
+                    "name": "barPadding", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "5", 
+                    "description": "Padding between bar groups", 
+                    "name": "barGroupPadding", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "true", 
+                    "description": "Whether the bars should highlight when a mouse is hovered on them.", 
+                    "name": "highlightOnHover", 
+                    "type": "boolean"
+                }
+            ], 
+            "example": "grouped_bars.example.html"
+        },
+        "addBars(config)": {
+            "config": "defaults",
+            "description": "Adds bars to teh visualization based on configuration",
+            "example": "defaults"
+        },
+        "removeBars(searchParams)": {
+            "config": "defaults", 
+            "description": "Removes bars from the visualization based on the search params.", 
+            "example": "defaults"
+        }, 
+        "updateBars(searchParams, config)": {
+            "config": "defaults", 
+            "description": "Updates bars on the visualization.", 
+            "example": "defaults"
+        }
+    }, 
+    "Box And Whisker": {
+        "addBoxAndWhisker(config)": {
+            "config": "defaults", 
+            "description": "Adds a box and whisker plot to the visualization", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "auto", 
+                    "description": "A unique id for this area. Auto generated if not provided. Specify this if you want to find this area group later.", 
+                    "name": "id", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "", 
+                    "description": "Set of css classes to add to the area. Ex: \"someclass1 someclass2\"", 
+                    "name": "cls", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The id of the xScale to be used with this area. If not specified, sonic will find a scale that shares the same xDataKey", 
+                    "name": "xScaleId", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The id of the yScale to be used with this area. If not specified, sonic will find a scale that shares the same yDataKey", 
+                    "name": "yScaleId", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Array of series keys that indicate which series should be represented as areas. Ex. \"areaKey\" or [\"areaKey\"] or [\"areaKey1\", \"areaKey2\"]", 
+                    "name": "seriesKeys", 
+                    "type": "String or Array[String]"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Array of series indexes that indicate which series should be represented as areas. Ex. 1 or [1] or [0, 1]", 
+                    "name": "seriesIndexes", 
+                    "type": "Int or Array[Int]"
+                }, 
+                {
+                    "default": "value", 
+                    "description": "The property on each data point representing the desired value.", 
+                    "name": "valueKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{val:null}", 
+                    "description": "The currently selected data point. The point will show up as a diamond on the plot.", 
+                    "name": "currentPoint", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The style info for the box. See properties below for defaults.", 
+                    "name": "boxStyle", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "#FA8E46", 
+                    "description": "The fill color of the box.", 
+                    "name": "boxStyle.fill", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "#FA8E46", 
+                    "description": "The stroke of the box.", 
+                    "name": "boxStyle.stroke", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "2", 
+                    "description": "The stroke width of the box.", 
+                    "name": "boxStyle.strokeWidth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "0.6", 
+                    "description": "The fill opacity of the box.", 
+                    "name": "boxStyle.fillOpacity", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The default styling for the whiskers. See below for the configuration defaults.", 
+                    "name": "whiskerStyle", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "#FA8E46", 
+                    "description": "The default stroke of the whiskers.", 
+                    "name": "whiskerStyle.stroke", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "1", 
+                    "description": "The default stroke width of the whiskers.", 
+                    "name": "whiskerStyle.stokeWidth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The default styling for the median bar. See below for the configuration defaults.", 
+                    "name": "medianStyle", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "#E00707", 
+                    "description": "The default stroke of the median bar.", 
+                    "name": "medianStyle.stroke", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "2", 
+                    "description": "The default stroke width of the median bar.", 
+                    "name": "medianStyle.stokeWidth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The style info for the current point. See properties below for defaults.", 
+                    "name": "currentPointStyle", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "#3DDDF2", 
+                    "description": "The fill color of the current point.", 
+                    "name": "currentPointStyle.fill", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "#3DDDF2", 
+                    "description": "The stroke of the current point.", 
+                    "name": "currentPointStyle.stroke", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "2", 
+                    "description": "The stroke width of the current point.", 
+                    "name": "currentPointStyle.strokeWidth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "0.8", 
+                    "description": "The fill opacity of the current point.", 
+                    "name": "currentPointStyle.fillOpacity", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "diamond", 
+                    "description": "The shape of the current point.", 
+                    "name": "currentPointStyle.type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "50", 
+                    "description": "The size of the current point.", 
+                    "name": "currentPointStyle.size", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "Asc", 
+                    "description": "The sort function used to sort the data. By default assumes values and sorts ascending.", 
+                    "name": "sortFn", 
+                    "type": "Function(val1, val2)"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The configuration for the area tooltip. Properties are type, buffer, renderFn. See below for more info on these properties.", 
+                    "name": "tooltip", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "grouped", 
+                    "description": "Whether this component should render content to a grouped tooltip or to a global tooltip. Values are \"grouped\" and \"global\"", 
+                    "name": "tooltip.type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{type: \"value\", amount: null}", 
+                    "description": "Specifies how far from a point the mouse can be and still register a tooltip. Properties are type and value. Type values are \"value\" or \"pixel\", specifying if distance should be based on mouse pixel location or value at location of mouse. Amount is a value or pixel amount that specifies the buffer region.", 
+                    "name": "tooltip.buffer", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "This function returns a string that will populate the tooltip. The function accepts an array of closest points and the current mouse position.", 
+                    "name": "tooltip.renderFn", 
+                    "type": "Function(Array[Obj], MousePosition[x,y])"
+                }
+            ], 
+            "example": "box_and_whisker.example.html"
+        }, 
+        "removeBoxAndWhisker(searchParams)": {
+            "config": "defaults", 
+            "description": "Removes the box and whisker found based on search params", 
+            "example": "defaults"
+        }, 
+        "updateboxAndWhisker(searchParams, config)": {
+            "config": "defaults", 
+            "description": "Updates the box and whisker found based on search params with config", 
+            "example": "defaults"
+        }
+    }, 
+    "Difference Line": {
+        "addDifference(config)": {
+            "config": "defaults", 
+            "description": "Adds a difference line to the visualization.", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "auto", 
+                    "description": "A unique id for this bar. Auto generated if not provided. Specify this if you want to find this bar group later.", 
+                    "name": "id", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "x", 
+                    "description": "The property on each data point used for the x-axis value.", 
+                    "name": "xDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "y", 
+                    "description": "The property on each data point used for the y-axis value.", 
+                    "name": "yDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "linear", 
+                    "description": "How lines making edge of area should be interpolated. Options are \"linear\" or \"basis\".", 
+                    "name": "interpolator", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{key:null, index: null}", 
+                    "description": "The config for the base line. Key is the series key for the base line. Alternate, specify the index for the base line.", 
+                    "name": "base", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{key:null, index: null}", 
+                    "description": "The config for the compare line. Key is the series key for the compare line. Alternate, specify the index for the compare line.", 
+                    "name": "compare", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "0", 
+                    "description": "Allow clipping of points within this distance.", 
+                    "name": "buffer", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "blue", 
+                    "description": "The fill color for the area between the compare and base line with the compare line is below the base line.", 
+                    "name": "decreaseColor", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "red", 
+                    "description": "The fill color for the area between the compare and base line with the compare line is above the base line.", 
+                    "name": "increaseColor", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "0.75", 
+                    "description": "The fill opacity of the areas.", 
+                    "name": "fillOpacity", 
+                    "type": "float"
+                }
+            ], 
+            "example": "line_difference.example.html"
+        }, 
+        "removeDifference(searchParams)": {
+            "config": "defaults", 
+            "description": "Removes difference line matching search params", 
+            "example": "defaults"
+        }
+    }, 
+    "Forecast Line": {
+        "addForecast(config)": {
+            "config": "defaults", 
+            "description": "Adds a forecast component to the visualization", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "x", 
+                    "description": "The property on each data point used for the x-axis value.", 
+                    "name": "xDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "y", 
+                    "description": "The property on each data point used for the y-axis value.", 
+                    "name": "yDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Array of series keys that indicate which series should be represented as areas. Ex. \"areaKey\" or [\"areaKey\"] or [\"areaKey1\", \"areaKey2\"]", 
+                    "name": "seriesKeys", 
+                    "type": "String or Array[String]"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Array of series indexes that indicate which series should be represented as areas. Ex. 1 or [1] or [0, 1]", 
+                    "name": "seriesIndexes", 
+                    "type": "Int or Array[Int]"
+                }, 
+                {
+                    "default": "yellow", 
+                    "description": "The color of the prediction line. Any hex code or color string will work. If series data specifies a color property then that will override this specification. Ex. \"black\", \"#000000\".", 
+                    "name": "stroke", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "3", 
+                    "description": "The width of the prediction line.", 
+                    "name": "strokeWidth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "lightblue", 
+                    "description": "The color of the forecast error bounds area.", 
+                    "name": "fanColor", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The series key representing the historical data.", 
+                    "name": "fromSeriesKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The series index representing the historical data.", 
+                    "name": "fromSeriesIndex", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The configuration for the area tooltip. Properties are type, buffer, renderFn. See below for more info on these properties.", 
+                    "name": "tooltip", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "grouped", 
+                    "description": "Whether this component should render content to a grouped tooltip or to a global tooltip. Values are \"grouped\" and \"global\"", 
+                    "name": "tooltip.type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{type: \"value\", amount: null}", 
+                    "description": "Specifies how far from a point the mouse can be and still register a tooltip. Properties are type and value. Type values are \"value\" or \"pixel\", specifying if distance should be based on mouse pixel location or value at location of mouse. Amount is a value or pixel amount that specifies the buffer region.", 
+                    "name": "tooltip.buffer", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "This function returns a string that will populate the tooltip. The function accepts an array of closest points and the current mouse position.", 
+                    "name": "tooltip.renderFn", 
+                    "type": "Function(Array[Obj], MousePosition[x,y])"
+                }
+            ], 
+            "example": "#"
+        }
+    }, 
+    "Geo": {
+        "addChoropleth(config)": {
+            "config": "defaults", 
+            "description": "Adds a choropleth to the visualization.", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "auto", 
+                    "description": "A unique id for this area. Auto generated if not provided. Specify this if you want to find this area group later.", 
+                    "name": "id", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "", 
+                    "description": "Set of css classes to add to the area. Ex: \"someclass1 someclass2\"", 
+                    "name": "cls", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "val", 
+                    "description": "The property on each data point used for the desired value.", 
+                    "name": "dataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Array of series keys that indicate which series should be represented as areas. Ex. \"areaKey\" or [\"areaKey\"] or [\"areaKey1\", \"areaKey2\"]", 
+                    "name": "seriesKeys", 
+                    "type": "String or Array[String]"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Array of series indexes that indicate which series should be represented as areas. Ex. 1 or [1] or [0, 1]", 
+                    "name": "seriesIndexes", 
+                    "type": "Int or Array[Int]"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Specify this to manually set colors for buckets", 
+                    "name": "colors", 
+                    "type": "Array[String]"
+                }, 
+                {
+                    "default": "blue", 
+                    "description": "Specify colorbrewer color scheme for buckets.", 
+                    "name": "colorScheme", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "9", 
+                    "description": "Number of buckets to bin the data.", 
+                    "name": "buckets", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The geo configuration options. See below for defaults.", 
+                    "name": "baseGeos", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "[]", 
+                    "description": "Which types of geos to use. Values are \"states\", \"counties\" and \"nielsen_zones\"", 
+                    "name": "baseGeos.types", 
+                    "type": "Array[String]"
+                }, 
+                {
+                    "default": "{mesh: false, fill:\"#A4A4A4\", stroke: \"none\"}", 
+                    "description": "County geo styling options.", 
+                    "name": "baseGeos.counties", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{mesh: true, fill: \"none\", stroke: \"#FFF\"}", 
+                    "description": "State geo stying options.", 
+                    "name": "baseGeos.states", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{mesh: false, fill: \"A4A4A4\", stroke: \"#FFF\"}", 
+                    "description": "Nielsen zones styling options.", 
+                    "name": "baseGeos.nielsen_zones", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The topology to use.", 
+                    "name": "baseGeos.topology", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The projection properites for our visualiztion. See below for defaults.", 
+                    "name": "projection", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "albersUsa", 
+                    "description": "The projection type.", 
+                    "name": "projection.type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "1070", 
+                    "description": "Default zoom level.", 
+                    "name": "projection.scale", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "center", 
+                    "description": "The default position of the map relative to the viz body.", 
+                    "name": "projection.translate", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The configuration for the area tooltip. Properties are type, buffer, renderFn. See below for more info on these properties.", 
+                    "name": "tooltip", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "grouped", 
+                    "description": "Whether this component should render content to a grouped tooltip or to a global tooltip. Values are \"grouped\" and \"global\"", 
+                    "name": "tooltip.type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{type: \"value\", amount: null}", 
+                    "description": "Specifies how far from a point the mouse can be and still register a tooltip. Properties are type and value. Type values are \"value\" or \"pixel\", specifying if distance should be based on mouse pixel location or value at location of mouse. Amount is a value or pixel amount that specifies the buffer region.", 
+                    "name": "tooltip.buffer", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "This function returns a string that will populate the tooltip. The function accepts an array of closest points and the current mouse position.", 
+                    "name": "tooltip.renderFn", 
+                    "type": "Function(Array[Obj], MousePosition[x,y])"
+                }
+            ], 
+            "example": "choropleth.example.html"
+        }, 
+        "removeChoropleth(searchParams)": {
+            "config": "defaults", 
+            "description": "Removes choropleth matching search params", 
+            "example": "defaults"
+        }, 
+        "updateChoropleth(searchParams, config)": {
+            "config": "defaults", 
+            "description": "Updates a choropleth found with search params with config.", 
+            "example": "defaults"
+        }
+    }, 
+    "Hierarchical Pie": {
+        "addHPie(config)": {
+            "config": "defaults", 
+            "description": "Adds a hierarchical pie to the visualization", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "auto", 
+                    "description": "A unique id for this pie. Auto generated if not provided. Specify this if you want to find this area group later.", 
+                    "name": "id", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "sonic.colors.colorMap()", 
+                    "description": "The colors for the pie slices.", 
+                    "name": "colors", 
+                    "type": "sonic.colors.colorMap"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The series to be represented by hpie.", 
+                    "name": "seriesKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "group", 
+                    "description": "Data point property representing color group.", 
+                    "name": "colorByKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{show: true, threshold: PI / 6, pointsPerPixel: 1 / 6}", 
+                    "description": "Label configuration. The threshold is the minimum pie percentage necessary to have labels.", 
+                    "name": "labels", 
+                    "type": "Object"
+                }
+            ], 
+            "example": "hpie.example.html"
+        }, 
+        "highlightSlices()": {
+            "config": "defaults", 
+            "description": "High", 
+            "example": "defaults"
+        }
+    }, 
+    "Legend": {
+        "addLegend(config)": {
+            "config": "defaults", 
+            "description": "Adds a legend to the visualization.", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "[]", 
+                    "description": "The legends to add and where to add them. The objects pass should have id and pos properties where id is an Array of component ids to add to legend and pos is an Array with x, y positioning as a percentage. An Example would be [{id: [\"chart1\", \"chart2\"], {pos: [0.02, 0.05]}}]", 
+                    "name": "legends", 
+                    "type": "Array[Objects]"
+                }, 
+                {
+                    "default": "\"\"", 
+                    "description": "A set of additional classes to add to the legend.", 
+                    "name": "cls", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The styling config for the legend. See below for defaults.", 
+                    "name": "style", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "white", 
+                    "description": "Fill color for the legend box.", 
+                    "name": "style.fill", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "black", 
+                    "description": "Stroke color for the legend box.", 
+                    "name": "style.stroke", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "0.8", 
+                    "description": "The opacity of the legend.", 
+                    "name": "style.opacity", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "10px", 
+                    "description": "The font size of the legend text.", 
+                    "name": "style.fontSize", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "sans-serif", 
+                    "description": "The font family of the legend text.", 
+                    "name": "style.font", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "black", 
+                    "description": "The font color of the legend text.", 
+                    "name": "style.fontColor", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "5", 
+                    "description": "The padding for the text within the legend.", 
+                    "name": "style.padding", 
+                    "type": "Int"
+                }
+            ], 
+            "example": "#"
+        }, 
+        "removeLegend(searchParams)": {
+            "config": "defaults", 
+            "description": "Removes legend matching search params", 
+            "example": "defaults"
+        }, 
+        "updateLegend(searchParams, config)": {
+            "config": "defaults", 
+            "description": "Updates a legend found with search params with config.", 
+            "example": "defaults"
+        }
+    }, 
+    "Line": {
+        "addLine(config)": {
+            "config": "defaults", 
+            "description": "Adds lines to the visualization.", 
+            "example": "defaults"
+        }, 
+        "addLines(config)": {
+            "config": "defaults", 
+            "description": "Adds lines to the visualization.", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "auto", 
+                    "description": "A unique id for this line. Auto generated if not provided. Specify this if you want to find this area group later.", 
+                    "name": "id", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "", 
+                    "description": "Set of css classes to add to the line. Ex: \"someclass1 someclass2\"", 
+                    "name": "cls", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "id", 
+                    "description": "The property on each data point that makes it unique.", 
+                    "name": "definedDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "x", 
+                    "description": "The property on each data point used for the x-axis value.", 
+                    "name": "xDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "y", 
+                    "description": "The property on each data point used for the y-axis value.", 
+                    "name": "yDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The id of the xScale to be used with this area. If not specified, sonic will find a scale that shares the same xDataKey", 
+                    "name": "xScaleId", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The id of the yScale to be used with this area. If not specified, sonic will find a scale that shares the same yDataKey", 
+                    "name": "yScaleId", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Array of series keys that indicate which series should be represented as areas. Ex. \"areaKey\" or [\"areaKey\"] or [\"areaKey1\", \"areaKey2\"]", 
+                    "name": "seriesKeys", 
+                    "type": "String or Array[String]"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Array of series indexes that indicate which series should be represented as areas. Ex. 1 or [1] or [0, 1]", 
+                    "name": "seriesIndexes", 
+                    "type": "Int or Array[Int]"
+                }, 
+                {
+                    "default": "black", 
+                    "description": "The color of the line. Any hex code or color string will work. If series data specifies a color property then that will override this specification. Ex. \"black\", \"#000000\".", 
+                    "name": "stroke", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The color of the points on line if specified. Any hex code or color string will work. If series data specifies a color property then that will override this specification. Ex. \"black\", \"#000000\".", 
+                    "name": "fill", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "1", 
+                    "description": "The opacity of the points on the line.", 
+                    "name": "fillOpacity", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "false", 
+                    "description": "Whether to show circles markers at every data poin on the line.", 
+                    "name": "showPoints", 
+                    "type": "boolean"
+                }, 
+                {
+                    "default": "true", 
+                    "description": "Whether to show a circle marker at the point hovered over by the mouse.", 
+                    "name": "showPointTracer", 
+                    "type": "boolean"
+                }, 
+                {
+                    "default": "4", 
+                    "description": "The radius of the point markers.", 
+                    "name": "pointSize", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "6", 
+                    "description": "The radius of the point markers when hovered over.", 
+                    "name": "highlightPointSize", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "20", 
+                    "description": "The minimum pixels need to show points. Will auto hide points when there are many data points and drawing points is not feasible.", 
+                    "name": "minPixelsPerPoint", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "false", 
+                    "description": "Whether to sort incoming data points. If this is not true, lines can look weird due to the fact points are connect in order they appear in data.", 
+                    "name": "sort", 
+                    "type": "boolean"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The configuration for the area tooltip. Properties are type, buffer, renderFn. See below for more info on these properties.", 
+                    "name": "tooltip", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "grouped", 
+                    "description": "Whether this component should render content to a grouped tooltip or to a global tooltip. Values are \"grouped\" and \"global\"", 
+                    "name": "tooltip.type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{type: \"value\", amount: null}", 
+                    "description": "Specifies how far from a point the mouse can be and still register a tooltip. Properties are type and value. Type values are \"value\" or \"pixel\", specifying if distance should be based on mouse pixel location or value at location of mouse. Amount is a value or pixel amount that specifies the buffer region.", 
+                    "name": "tooltip.buffer", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "This function returns a string that will populate the tooltip. The function accepts an array of closest points and the current mouse position.", 
+                    "name": "tooltip.renderFn", 
+                    "type": "Function(Array[Obj], MousePosition[x,y])"
+                }
+            ], 
+            "example": "line.example.html"
+        }, 
+        "removeLine(searchParams)": {
+            "config": "defaults", 
+            "description": "Removes lines matching search params", 
+            "example": "defaults"
+        }, 
+        "removeLines(searchParams)": {
+            "config": "defaults", 
+            "description": "Removes lines matching search params", 
+            "example": "defaults"
+        }, 
+        "updateLine(searchParams, config)": {
+            "config": "defaults", 
+            "description": "Updates lines found with search params with config.", 
+            "example": "defaults"
+        }, 
+        "updateLines(searchParams, config)": {
+            "config": "defaults", 
+            "description": "Updates lines found with search params with config.", 
+            "example": "defaults"
+        }
+    }, 
+    "Matrix": {
+        "addMatrix(config)": {
+            "config": "defaults", 
+            "description": "Adds a matrix component to the visualization.", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "x", 
+                    "description": "The property on each data point used for the x-axis value.", 
+                    "name": "xDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "y", 
+                    "description": "The property on each data point used for the y-axis value.", 
+                    "name": "yDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "z", 
+                    "description": "The property on each data point used for the z dimension (color of bar).", 
+                    "name": "zDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "true", 
+                    "description": "Specifies whether the data needs to be quantized (as opposed to the z values already binned).", 
+                    "name": "quantize", 
+                    "type": "boolean"
+                }, 
+                {
+                    "default": "5", 
+                    "description": "The amount of padding between bars.", 
+                    "name": "barPadding", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "5", 
+                    "description": "The number of bins to use when quantizing data.", 
+                    "name": "buckets", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "1", 
+                    "description": "The opacity of the area fill", 
+                    "name": "fillOpacity", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "['#FF0000', '#f46d43', '#f6faaa', '#abdda4', '#008000']", 
+                    "description": "The colors mapping to the buckets. The length of this array should match the number of buckets.", 
+                    "name": "colors", 
+                    "type": "Array[String]"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The configuration for the area tooltip. Properties are type, buffer, renderFn. See below for more info on these properties.", 
+                    "name": "tooltip", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "grouped", 
+                    "description": "Whether this component should render content to a grouped tooltip or to a global tooltip. Values are \"grouped\" and \"global\"", 
+                    "name": "tooltip.type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{type: \"value\", amount: null}", 
+                    "description": "Specifies how far from a point the mouse can be and still register a tooltip. Properties are type and value. Type values are \"value\" or \"pixel\", specifying if distance should be based on mouse pixel location or value at location of mouse. Amount is a value or pixel amount that specifies the buffer region.", 
+                    "name": "tooltip.buffer", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "This function returns a string that will populate the tooltip. The function accepts an array of closest points and the current mouse position.", 
+                    "name": "tooltip.renderFn", 
+                    "type": "Function(Array[Obj], MousePosition[x,y])"
+                }
+            ], 
+            "example": "matrix.example.html"
+        }
+    }, 
+    "Network": {
+        "addNetwork(config)": {
+            "config": "defaults", 
+            "description": "Adds a network to the visualization.", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "", 
+                    "description": "Set of css classes to add to the area. Ex: \"someclass1 someclass2\"", 
+                    "name": "cls", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "id", 
+                    "description": "The data point property that makes it unique.", 
+                    "name": "nodeIdKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "name", 
+                    "description": "The data point property to display in visualization.", 
+                    "name": "nodeDisplayKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "group", 
+                    "description": "The group this node belongs to.", 
+                    "name": "nodeGroupKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "radius", 
+                    "description": "The data point property that specifies the radius of the node.", 
+                    "name": "nodeCircleRadiusKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "fill", 
+                    "description": "The data point property that specifies the fill color.", 
+                    "name": "nodeFillKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "image", 
+                    "description": "The data point property that specifies the image url.", 
+                    "name": "nodeImageKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "highlightImage", 
+                    "description": "The data point property that specifies the highlight image url.", 
+                    "name": "nodeImageHighlightKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "width", 
+                    "description": "The data point property representing the image width.", 
+                    "name": "nodeImageWidthKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "height", 
+                    "description": "The data point property representing the image height.", 
+                    "name": "nodeImageHeightKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{size: [0.8 * height, 0.8 * width]}", 
+                    "description": "The default size of the visualization.", 
+                    "name": "layout", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "Styling options for links. See below for details.", 
+                    "name": "linkStyle", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "1", 
+                    "description": "The opacity of the links.", 
+                    "name": "linkStyle.opacity", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "2", 
+                    "description": "The thickness of the links.", 
+                    "name": "linkStyle.strokeWidth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "2", 
+                    "description": "How much bigger the stroke width should get when hovered on.", 
+                    "name": "linkStyle.highlightStrokeWidthGrowth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "#CCCCCC", 
+                    "description": "The color of the link when hovered on.", 
+                    "name": "linkStyle.highlightStrokeColor", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "#CCCCCC", 
+                    "description": "The color of the links.", 
+                    "name": "linkStyle.stroke", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "Style options for the nodes. See below for details.", 
+                    "name": "nodeStyle", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "0.7", 
+                    "description": "The opacity of the nodes.", 
+                    "name": "nodeStyle.opacity", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "2", 
+                    "description": "The width of the node borders.", 
+                    "name": "nodeStyle.strokeWidth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "depth", 
+                    "description": "Allows you to color nodes by \"depth\" or \"group\". Color specified in data with override colors assign through this mechanism.", 
+                    "name": "nodeStyle.colorBy", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "sonic.colors.colorMap()", 
+                    "description": "The colors for the nodes.", 
+                    "name": "nodeStyle.nodeColors", 
+                    "type": "sonic.colors.colorMap"
+                }, 
+                {
+                    "default": "5", 
+                    "description": "The size of the nodes.", 
+                    "name": "nodeStyle.radius", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "3", 
+                    "description": "How much bigger nodes get on hover.", 
+                    "name": "nodeStyle.highlightRadiusGrowth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "{fill: \"#555\", fontFamily: \"arial\", fontSize: \"12px\", anchor: \"middle\"}", 
+                    "description": "Options for adjust style of text. Note that fill will change the color of text.", 
+                    "name": "nodeStyle.label", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Specify a radius ranges to restrict the size of the nodes.", 
+                    "name": "nodeStyle.range", 
+                    "type": "Array[Int]"
+                }, 
+                {
+                    "default": "{gravity: 0.05, distance: 100, charge: 100}", 
+                    "description": "Properties to control the network force simulation.", 
+                    "name": "networkForce", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The configuration for the area tooltip. Properties are type, buffer, renderFn. See below for more info on these properties.", 
+                    "name": "tooltip", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "grouped", 
+                    "description": "Whether this component should render content to a grouped tooltip or to a global tooltip. Values are \"grouped\" and \"global\"", 
+                    "name": "tooltip.type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{type: \"value\", amount: null}", 
+                    "description": "Specifies how far from a point the mouse can be and still register a tooltip. Properties are type and value. Type values are \"value\" or \"pixel\", specifying if distance should be based on mouse pixel location or value at location of mouse. Amount is a value or pixel amount that specifies the buffer region.", 
+                    "name": "tooltip.buffer", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "This function returns a string that will populate the tooltip. The function accepts an array of closest points and the current mouse position.", 
+                    "name": "tooltip.renderFn", 
+                    "type": "Function(Array[Obj], MousePosition[x,y])"
+                }
+            ], 
+            "example": "network_force.example.html"
+        }, 
+        "removeNetwork(searchParams)": {
+            "config": "defaults", 
+            "description": "Removes network matching search params", 
+            "example": "defaults"
+        }, 
+        "updateNetwork(searchParams, config)": {
+            "config": "defaults", 
+            "description": "Updates a network found with search params with config.", 
+            "example": "defaults"
+        }
+    }, 
+    "Overlay Bars": {
+        "addOverlayBars(config)": {
+            "config": "defaults", 
+            "description": "Adds an overlay to the visualization.", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "x", 
+                    "description": "The property on each data point used for the x-axis value.", 
+                    "name": "xDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "x2", 
+                    "description": "The property on each data point used for the second x-axis value.", 
+                    "name": "xToDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Array of series keys that indicate which series should be represented as overlays. Ex. \"areaKey\" or [\"areaKey\"] or [\"areaKey1\", \"areaKey2\"]", 
+                    "name": "seriesKeys", 
+                    "type": "String or Array[String]"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Array of series indexes that indicate which series should be represented as overlays. Ex. 1 or [1] or [0, 1]", 
+                    "name": "seriesIndexes", 
+                    "type": "Int or Array[Int]"
+                }, 
+                {
+                    "default": "orange", 
+                    "description": "The color of the overlay. Any hex code or color string will work. If series data specifies a color property then that will override this specification. Ex. \"black\", \"#000000\".", 
+                    "name": "fill", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "0.5", 
+                    "description": "The opacity of the overlay fill", 
+                    "name": "fillOpacity", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The configuration for the area tooltip. Properties are type, buffer, renderFn. See below for more info on these properties.", 
+                    "name": "tooltip", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "grouped", 
+                    "description": "Whether this component should render content to a grouped tooltip or to a global tooltip. Values are \"grouped\" and \"global\"", 
+                    "name": "tooltip.type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{type: \"value\", amount: null}", 
+                    "description": "Specifies how far from a point the mouse can be and still register a tooltip. Properties are type and value. Type values are \"value\" or \"pixel\", specifying if distance should be based on mouse pixel location or value at location of mouse. Amount is a value or pixel amount that specifies the buffer region.", 
+                    "name": "tooltip.buffer", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "This function returns a string that will populate the tooltip. The function accepts an array of closest points and the current mouse position.", 
+                    "name": "tooltip.renderFn", 
+                    "type": "Function(Array[Obj], MousePosition[x,y])"
+                }
+            ], 
+            "example": "line_with_overlays.example.html"
+        }, 
+        "removeOverlayBars(searchParams)": {
+            "config": "defaults", 
+            "description": "Removes overlay based on search params.", 
+            "example": "defaults"
+        }
+    }, 
+    "Pie": {
+        "addPie(config)": {
+            "config": "defaults", 
+            "description": "Adds a pie to the visualization", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "auto", 
+                    "description": "A unique id for this pie. Auto generated if not provided. Specify this if you want to find this area group later.", 
+                    "name": "id", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "y", 
+                    "description": "The property on each data point used for the percentage value.", 
+                    "name": "yDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The inner radius of the pie. 0 for pie, > 0 will give you a donut.", 
+                    "name": "innerRadius", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The outer radius of the pie.", 
+                    "name": "outerRadius", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "true", 
+                    "description": "Whether or not to show labels on the pie. Specifying a thresholdToLabel can prevent labels on small slices.", 
+                    "name": "showLabels", 
+                    "type": "boolean"
+                }, 
+                {
+                    "default": "id", 
+                    "description": "Data point property representing the label.", 
+                    "name": "labelDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "0.6", 
+                    "description": "Default inner radius.", 
+                    "name": "innerScale", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "0.9", 
+                    "description": "Default outer radius.", 
+                    "name": "outerScale", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "0.17", 
+                    "description": "The minimum percentage of a slice necessary to get a label.", 
+                    "name": "thresholdToLabel", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The font size.", 
+                    "name": "labelSize", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "sonic.colors.colorMap()", 
+                    "description": "The colors for the pie slices.", 
+                    "name": "colors", 
+                    "type": "sonic.colors.colorMap"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The configuration for the area tooltip. Properties are type, buffer, renderFn. See below for more info on these properties.", 
+                    "name": "tooltip", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "grouped", 
+                    "description": "Whether this component should render content to a grouped tooltip or to a global tooltip. Values are \"grouped\" and \"global\"", 
+                    "name": "tooltip.type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{type: \"value\", amount: null}", 
+                    "description": "Specifies how far from a point the mouse can be and still register a tooltip. Properties are type and value. Type values are \"value\" or \"pixel\", specifying if distance should be based on mouse pixel location or value at location of mouse. Amount is a value or pixel amount that specifies the buffer region.", 
+                    "name": "tooltip.buffer", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "This function returns a string that will populate the tooltip. The function accepts an array of closest points and the current mouse position.", 
+                    "name": "tooltip.renderFn", 
+                    "type": "Function(Array[Obj], MousePosition[x,y])"
+                }
+            ], 
+            "example": "#"
+        }
+    }, 
+    "Point": {
+        "addPoint(config)": {
+            "config": "defaults", 
+            "description": "Adds points to the visualization.", 
+            "example": "defaults"
+        }, 
+        "addPoints(config)": {
+            "config": "defaults", 
+            "description": "Adds points to the visualization.", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "auto", 
+                    "description": "A unique id for this point. Auto generated if not provided. Specify this if you want to find this area group later.", 
+                    "name": "id", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "", 
+                    "description": "Set of css classes to add to the point. Ex: \"someclass1 someclass2\"", 
+                    "name": "cls", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "id", 
+                    "description": "The property on each data point that makes it unique.", 
+                    "name": "definedDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "x", 
+                    "description": "The property on each data point used for the x-axis value.", 
+                    "name": "xDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "y", 
+                    "description": "The property on each data point used for the y-axis value.", 
+                    "name": "yDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The id of the xScale to be used with this area. If not specified, sonic will find a scale that shares the same xDataKey", 
+                    "name": "xScaleId", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The id of the yScale to be used with this area. If not specified, sonic will find a scale that shares the same yDataKey", 
+                    "name": "yScaleId", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Array of series keys that indicate which series should be represented as points. Ex. \"pointKey\" or [\"pountKey\"] or [\"pointKey1\", \"pointKey2\"]", 
+                    "name": "seriesKeys", 
+                    "type": "String or Array[String]"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Array of series indexes that indicate which series should be represented as points. Ex. 1 or [1] or [0, 1]", 
+                    "name": "seriesIndexes", 
+                    "type": "Int or Array[Int]"
+                }, 
+                {
+                    "default": "black", 
+                    "description": "The color of the edge of the point. Any hex code or color string will work. If series data specifies a color property then that will override this specification. Ex. \"black\", \"#000000\".", 
+                    "name": "stroke", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The color of the point. Any hex code or color string will work. If series data specifies a color property then that will override this specification. Ex. \"black\", \"#000000\".", 
+                    "name": "fill", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "cirlce", 
+                    "description": "The type of point. The options are circle, cross, diamond, square, triangle-down, triangle-up.", 
+                    "name": "symbol", 
+                    "type": "String"
+                }, 
+                {
+                    "default": 64, 
+                    "description": "The size of the point, pixels squared. Default is 8x8 = 64.", 
+                    "name": "size", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "2", 
+                    "description": "How much bigger should point get when hovered.", 
+                    "name": "highlightSizeScale", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "1", 
+                    "description": "The opacity of the point fill", 
+                    "name": "fillOpacity", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The configuration for the area tooltip. Properties are type, buffer, renderFn. See below for more info on these properties.", 
+                    "name": "tooltip", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "grouped", 
+                    "description": "Whether this component should render content to a grouped tooltip or to a global tooltip. Values are \"grouped\" and \"global\"", 
+                    "name": "tooltip.type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{type: \"value\", amount: null}", 
+                    "description": "Specifies how far from a point the mouse can be and still register a tooltip. Properties are type and value. Type values are \"value\" or \"pixel\", specifying if distance should be based on mouse pixel location or value at location of mouse. Amount is a value or pixel amount that specifies the buffer region.", 
+                    "name": "tooltip.buffer", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "This function returns a string that will populate the tooltip. The function accepts an array of closest points and the current mouse position.", 
+                    "name": "tooltip.renderFn", 
+                    "type": "Function(Array[Obj], MousePosition[x,y])"
+                }
+            ], 
+            "example": "scatter.example.html"
+        }, 
+        "removePoint(searchParams)": {
+            "config": "defaults", 
+            "description": "Removes points matching search params", 
+            "example": "defaults"
+        }, 
+        "removePoints(searchParams)": {
+            "config": "defaults", 
+            "description": "Removes points matching search params", 
+            "example": "defaults"
+        }, 
+        "updatePoint(searchParams, config)": {
+            "config": "defaults", 
+            "description": "Updates points found with search params with config.", 
+            "example": "defaults"
+        }, 
+        "updatePoints(searchParams, config)": {
+            "config": "defaults", 
+            "description": "Updates points found with search params with config.", 
+            "example": "defaults"
+        }
+    }, 
+    "Punchcard": {
+        "addPunchcard(config)": {
+            "config": "defaults", 
+            "description": "Adds punches to the visualization.", 
+            "example": "defaults"
+        }, 
+        "addPunches(config)": {
+            "config": "defaults", 
+            "description": "Adds punches to the visualization.", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "auto", 
+                    "description": "A unique id for this punch. Auto generated if not provided. Specify this if you want to find this area group later.", 
+                    "name": "id", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "", 
+                    "description": "Set of css classes to add to the punch. Ex: \"someclass1 someclass2\"", 
+                    "name": "cls", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "z", 
+                    "description": "The property on each data point used for the z dimension.", 
+                    "name": "zDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "x", 
+                    "description": "The property on each data point used for the x-axis value.", 
+                    "name": "xDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "y", 
+                    "description": "The property on each data point used for the y-axis value.", 
+                    "name": "yDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The id of the xScale to be used with this area. If not specified, sonic will find a scale that shares the same xDataKey", 
+                    "name": "xScaleId", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The id of the yScale to be used with this area. If not specified, sonic will find a scale that shares the same yDataKey", 
+                    "name": "yScaleId", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "black or fill color", 
+                    "description": "The color of the edge of the punch. Any hex code or color string will work. If series data specifies a color property then that will override this specification. Ex. \"black\", \"#000000\".", 
+                    "name": "stroke", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "black or stroke color", 
+                    "description": "The color of the punch. Any hex code or color string will work. If series data specifies a color property then that will override this specification. Ex. \"black\", \"#000000\".", 
+                    "name": "fill", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "1", 
+                    "description": "The opacity of the punch fill", 
+                    "name": "fillOpacity", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "[2, 10]", 
+                    "description": "The range of punch radius. The actual radius will be calculated based on the data.", 
+                    "name": "radius", 
+                    "type": "Array[Int]"
+                }, 
+                {
+                    "default": "true", 
+                    "description": "Whether being clicked changes the appearance of a punch.", 
+                    "name": "clickable", 
+                    "type": "boolean"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The configuration for the area tooltip. Properties are type, buffer, renderFn. See below for more info on these properties.", 
+                    "name": "tooltip", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "grouped", 
+                    "description": "Whether this component should render content to a grouped tooltip or to a global tooltip. Values are \"grouped\" and \"global\"", 
+                    "name": "tooltip.type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{type:\"value\", amount: null}", 
+                    "description": "Specifies how far from a point the mouse can be and still register a tooltip. Properties are type and value. Type values are \"value\" or \"pixel\", specifying if distance should be based on mouse pixel location or value at location of mouse. Amount is a value or pixel amount that specifies the buffer region.", 
+                    "name": "tooltip.buffer", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "This function returns a string that will populate the tooltip. The function accepts an array of closest points and the current mouse position.", 
+                    "name": "tooltip.renderFn", 
+                    "type": "Function(Array[Obj], MousePosition[x,y])"
+                }
+            ], 
+            "example": "punchcard.example.html"
+        }, 
+        "removePunches(searchParams)": {
+            "config": "defaults", 
+            "description": "Removes punches matching search params", 
+            "example": "defaults"
+        }, 
+        "updatePunchcard(searchParams, config)": {
+            "config": "defaults", 
+            "description": "Updates punches found with search params with config.", 
+            "example": "defaults"
+        }, 
+        "updatePunches(searchParams, config)": {
+            "config": "defaults", 
+            "description": "Updates punches found with search params with config.", 
+            "example": "defaults"
+        }
+    }, 
+    "Rule": {
+        "addCrosshair(config)": {
+            "config": [
+                {
+                    "default": "auto", 
+                    "description": "A unique id for this area. Auto generated if not provided. Specify this if you want to find this area group later.", 
+                    "name": "id", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "", 
+                    "description": "Set of css classes to add to the area. Ex: \"someclass1 someclass2\"", 
+                    "name": "cls", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "grey", 
+                    "description": "The color of the rule. Any hex code or color string will work. If series data specifies a color property then that will override this specification. Ex. \"black\", \"#000000\".", 
+                    "name": "stroke", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "1", 
+                    "description": "The thickness of the rule.", 
+                    "name": "strokeWidth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "{id: null, x: null, y: null}", 
+                    "description": "If you want to pin a rule to an axis value specify the axis id and the x or y value to pin the axis to.", 
+                    "name": "axisPin", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{show: false, stroke: \"3,3\"}", 
+                    "description": "Choose show true to make the rule dashed. Adjust the stroke as desired.", 
+                    "name": "dashed", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The position of the axis as a percentage of the viz height or width.", 
+                    "name": "position", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "x or y depending on whether you want a horizontal or vertial rule.", 
+                    "name": "type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If set determines length of rule. Otherwise length is the entire height or width.", 
+                    "name": "length", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "{length: 0}", 
+                    "description": "Length of rule offset.", 
+                    "name": "offset", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "true", 
+                    "description": "Whether or not the rule should be attached to the mouse.", 
+                    "name": "followMouse", 
+                    "type": "boolean"
+                }
+            ], 
+            "description": "Adds rules that follow mouse to resemble crosshairs to the visualization.", 
+            "example": "defaults"
+        }, 
+        "addRule(config)": {
+            "config": "defaults", 
+            "description": "Adds a rule to the visualization.", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "auto", 
+                    "description": "A unique id for this area. Auto generated if not provided. Specify this if you want to find this area group later.", 
+                    "name": "id", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "", 
+                    "description": "Set of css classes to add to the area. Ex: \"someclass1 someclass2\"", 
+                    "name": "cls", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "grey", 
+                    "description": "The color of the rule. Any hex code or color string will work. If series data specifies a color property then that will override this specification. Ex. \"black\", \"#000000\".", 
+                    "name": "stroke", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "1", 
+                    "description": "The thickness of the rule.", 
+                    "name": "strokeWidth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "{id: null, x: null, y: null}", 
+                    "description": "If you want to pin a rule to an axis value specify the axis id and the x or y value to pin the axis to.", 
+                    "name": "axisPin", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{show: false, stroke: \"3,3\"}", 
+                    "description": "Choose show true to make the rule dashed. Adjust the stroke as desired.", 
+                    "name": "dashed", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The position of the axis as a percentage of the viz height or width.", 
+                    "name": "position", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "x or y depending on whether you want a horizontal or vertial rule.", 
+                    "name": "type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "If set determines length of rule. Otherwise length is the entire height or width.", 
+                    "name": "length", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "{length: 0}", 
+                    "description": "Length of rule offset.", 
+                    "name": "offset", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "false", 
+                    "description": "Whether or not the rule should be attached to the mouse.", 
+                    "name": "followMouse", 
+                    "type": "boolean"
+                }
+            ], 
+            "example": "stacked_axis.example.html"
+        }, 
+        "removeRule(searchParams)": {
+            "config": "defaults", 
+            "description": "Removes rule matching search params", 
+            "example": "defaults"
+        }, 
+        "updateRule(searchParams, config)": {
+            "config": "defaults", 
+            "description": "Updates a rule found with search params with config.", 
+            "example": "defaults"
+        }
+    }, 
+    "Scale": {
+        "addLinearScale(config)": {
+            "config": "defaults", 
+            "description": "Adds a linear scale to the visualization.", 
+            "example": "defaults"
+        }, 
+        "addOrdinalScale(config)": {
+            "config": [
+                {
+                    "default": "auto", 
+                    "description": "A unique id for this scale. Auto generated if not provided. Specify this if you want to find this area group later.", 
+                    "name": "id", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The data point property that is linked to this scale. Used to auto calculate domain.", 
+                    "name": "dataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The range of the scale as percentage of viz body (Ex. [0.25, 0.75]).", 
+                    "name": "range", 
+                    "type": "Array[float]"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The position of the scale. Options are top, left, bottom, right", 
+                    "name": "pos", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "ordinal", 
+                    "description": "The type of scale to add. Option are linear, ordinal, time.", 
+                    "name": "type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{min: null, max: null}", 
+                    "description": "Add padding to scale so data points are not draw right on the axis end or beginning. The values should correspond to the scale type.", 
+                    "name": "pad", 
+                    "type": "Object"
+                }
+            ], 
+            "description": "Adds an ordinal scale to the visualization.", 
+            "example": "defaults"
+        }, 
+        "addScale(config)": {
+            "config": "defaults", 
+            "description": "Adds scale to the visualization.", 
+            "example": "defaults"
+        }, 
+        "addTimeScale(config)": {
+            "config": [
+                {
+                    "default": "auto", 
+                    "description": "A unique id for this scale. Auto generated if not provided. Specify this if you want to find this area group later.", 
+                    "name": "id", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The data point property that is linked to this scale. Used to auto calculate domain.", 
+                    "name": "dataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The range of the scale as percentage of viz body (Ex. [0.25, 0.75]).", 
+                    "name": "range", 
+                    "type": "Array[float]"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The position of the scale. Options are top, left, bottom, right", 
+                    "name": "pos", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "time", 
+                    "description": "The type of scale to add. Option are linear, ordinal, time.", 
+                    "name": "type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{min: null, max: null}", 
+                    "description": "Add padding to scale so data points are not draw right on the axis end or beginning. The values should correspond to the scale type.", 
+                    "name": "pad", 
+                    "type": "Object"
+                }
+            ], 
+            "description": "Adds a time scale to the visualization.", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "auto", 
+                    "description": "A unique id for this scale. Auto generated if not provided. Specify this if you want to find this area group later.", 
+                    "name": "id", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The data point property that is linked to this scale. Used to auto calculate domain.", 
+                    "name": "dataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The range of the scale as percentage of viz body (Ex. [0.25, 0.75]).", 
+                    "name": "range", 
+                    "type": "Array[float]"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The position of the scale. Options are top, left, bottom, right", 
+                    "name": "pos", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The type of scale to add. Option are linear, ordinal, time.", 
+                    "name": "type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{min: null, max: null}", 
+                    "description": "Add padding to scale so data points are not draw right on the axis end or beginning. The values should correspond to the scale type.", 
+                    "name": "pad", 
+                    "type": "Object"
+                }
+            ], 
+            "example": "stacked_with_scale.example.html"
+        }, 
+        "removeScale(searchParams)": {
+            "config": "defaults", 
+            "description": "Removes scales matching search params", 
+            "example": "defaults"
+        }, 
+        "updateScale(searchParams, config)": {
+            "config": "defaults", 
+            "description": "Updates scales found with search params with config.", 
+            "example": "defaults"
+        }
+    }, 
+    "Significance Bars": {
+        "addSignificanceBars(config)": {
+            "config": "defaults", 
+            "description": "Adds significance bars to the visualization.", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "auto", 
+                    "description": "A unique id for this area. Auto generated if not provided. Specify this if you want to find this area group later.", 
+                    "name": "id", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "x", 
+                    "description": "The property on each data point used for the x-axis value.", 
+                    "name": "xDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "y", 
+                    "description": "The property on each data point used for the y-axis value.", 
+                    "name": "yDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "z", 
+                    "description": "The property on each data point used for the z dimension (color of bar).", 
+                    "name": "zDataKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The id of the xScale to be used with this area. If not specified, sonic will find a scale that shares the same xDataKey", 
+                    "name": "xScaleId", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "The id of the yScale to be used with this area. If not specified, sonic will find a scale that shares the same yDataKey", 
+                    "name": "yScaleId", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{color: \"blue\", threshold: 0.25}", 
+                    "description": "Defines the low threshold. Any data below the low threshold shows as the low color.", 
+                    "name": "low", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{color: \"red\", threshold: 0.75}", 
+                    "description": "Defines the high threshold. Any data above the high threshold shows as the high color.", 
+                    "name": "high", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{hidden: true, color: 'transparent'}", 
+                    "description": "Defines the color for the bars outside of the thresholds and whether they should be displayed.", 
+                    "name": "nonSignificanceBars", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{active: false, hoverColor: null}", 
+                    "description": "Allows bars to be shaded based on there proximity to the threshold. Since shading has value when this is activated. The hover color will be used when mousing over rather than the default shading.", 
+                    "name": "brightShading", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "0.75", 
+                    "description": "The opacity of the bar fill", 
+                    "name": "fillOpacity", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "1", 
+                    "description": "The width of the edge of the bars.", 
+                    "name": "strokeWidth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "3", 
+                    "description": "Padding between significance bars.", 
+                    "name": "barPadding", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "0", 
+                    "description": "The padding between the width and scale ranges.", 
+                    "name": "widthPadVal", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "false", 
+                    "description": "Whether or not to use a hand cursor when hovering on bars. Would be used to indicate bars are clickable.", 
+                    "name": "pointerHand", 
+                    "type": "boolean"
+                }, 
+                {
+                    "default": "false", 
+                    "description": "When true groups of adjacent data are joined together into larger bars.", 
+                    "name": "suppressGrouping", 
+                    "type": "boolean"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The configuration for the area tooltip. Properties are type, buffer, renderFn. See below for more info on these properties.", 
+                    "name": "tooltip", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "grouped", 
+                    "description": "Whether this component should render content to a grouped tooltip or to a global tooltip. Values are \"grouped\" and \"global\"", 
+                    "name": "tooltip.type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{type: \"value\", amount: null}", 
+                    "description": "Specifies how far from a point the mouse can be and still register a tooltip. Properties are type and value. Type values are \"value\" or \"pixel\", specifying if distance should be based on mouse pixel location or value at location of mouse. Amount is a value or pixel amount that specifies the buffer region.", 
+                    "name": "tooltip.buffer", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "This function returns a string that will populate the tooltip. The function accepts an array of closest points and the current mouse position.", 
+                    "name": "tooltip.renderFn", 
+                    "type": "Function(Array[Obj], MousePosition[x,y])"
+                }
+            ], 
+            "example": "significance_bars.example.html"
+        }, 
+        "updateSignificanceBars(searchParams, config)": {
+            "config": "defaults", 
+            "description": "Updates significance bars matching the search params with the config.", 
+            "example": "defaults"
+        }
+    }, 
+    "Tree": {
+        "addTree(config)": {
+            "config": "defaults", 
+            "description": "Adds a tree to the visualization.", 
+            "example": "defaults"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "", 
+                    "description": "Set of css classes to add to the area. Ex: \"someclass1 someclass2\"", 
+                    "name": "cls", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "id", 
+                    "description": "The data point property that makes it unique.", 
+                    "name": "nodeIdKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "name", 
+                    "description": "The data point property to display in visualization.", 
+                    "name": "nodeDisplayKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "group", 
+                    "description": "The group this node belongs to.", 
+                    "name": "nodeGroupKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "radius", 
+                    "description": "The data point property that specifies the radius of the node.", 
+                    "name": "nodeSizeKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "fill", 
+                    "description": "The data point property that specifies the fill color.", 
+                    "name": "nodeFillKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "children", 
+                    "description": "The data point property that specifies a nodes children.", 
+                    "name": "childrenKey", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "true", 
+                    "description": "Whether the tree should span vertically or horizontally.", 
+                    "name": "verticalTree", 
+                    "type": "boolean"
+                }, 
+                {
+                    "default": "{size: [0.8 * height, 0.8 * width]}", 
+                    "description": "The default size of the visualization.", 
+                    "name": "layoutOpts", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "Styling options for links. See below for details.", 
+                    "name": "linkStyle", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "1", 
+                    "description": "The opacity of the links.", 
+                    "name": "linkStyle.opacity", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "2", 
+                    "description": "The thickness of the links.", 
+                    "name": "linkStyle.strokeWidth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "2", 
+                    "description": "How much bigger the stroke width should get when hovered on.", 
+                    "name": "linkStyle.highlightStrokeWidthGrowth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "darker", 
+                    "description": "The color of the link when hovered on.", 
+                    "name": "linkStyle.highlightStrokeChange", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "#CCCCCC", 
+                    "description": "The color of the links.", 
+                    "name": "linkStyle.stroke", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "Style options for the nodes. See below for details.", 
+                    "name": "nodeStyle", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "0.7", 
+                    "description": "The opacity of the nodes.", 
+                    "name": "nodeStyle.opacity", 
+                    "type": "float"
+                }, 
+                {
+                    "default": "2", 
+                    "description": "The width of the node borders.", 
+                    "name": "nodeStyle.strokeWidth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "depth", 
+                    "description": "Allows you to color nodes by \"depth\" or \"group\". Color specified in data with override colors assign through this mechanism.", 
+                    "name": "nodeStyle.colorBy", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "sonic.colors.colorMap()", 
+                    "description": "The colors for the nodes.", 
+                    "name": "nodeStyle.nodeColors", 
+                    "type": "sonic.colors.colorMap"
+                }, 
+                {
+                    "default": "5", 
+                    "description": "The size of the nodes.", 
+                    "name": "radius", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "3", 
+                    "description": "How much bigger nodes get on hover.", 
+                    "name": "highlightRadiusGrowth", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "brighter", 
+                    "description": "How the stroke changes when hovered.", 
+                    "name": "highlightStrokeChange", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "brighter", 
+                    "description": "How the fill changes when hovered.", 
+                    "name": "highlightFillChange", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{fill: \"#555\", fontFamily: \"arial\", fontSize: \"12px\", anchor: \"middle\"}", 
+                    "description": "Options for adjust style of text. Note that fill will change the color of text.", 
+                    "name": "label", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{}", 
+                    "description": "The configuration for the area tooltip. Properties are type, buffer, renderFn. See below for more info on these properties.", 
+                    "name": "tooltip", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "grouped", 
+                    "description": "Whether this component should render content to a grouped tooltip or to a global tooltip. Values are \"grouped\" and \"global\"", 
+                    "name": "tooltip.type", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "{type: \"value\", amount: null}", 
+                    "description": "Specifies how far from a point the mouse can be and still register a tooltip. Properties are type and value. Type values are \"value\" or \"pixel\", specifying if distance should be based on mouse pixel location or value at location of mouse. Amount is a value or pixel amount that specifies the buffer region.", 
+                    "name": "tooltip.buffer", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "This function returns a string that will populate the tooltip. The function accepts an array of closest points and the current mouse position.", 
+                    "name": "tooltip.renderFn", 
+                    "type": "Function(Array[Obj], MousePosition[x,y])"
+                }
+            ], 
+            "example": "network_tree.example.html"
+        }, 
+        "removeTree(searchParams)": {
+            "config": "defaults", 
+            "description": "Removes tree matching search params", 
+            "example": "defaults"
+        }, 
+        "updateTree(searchParams, config)": {
+            "config": "defaults", 
+            "description": "Updates a tree found with search params with config.", 
+            "example": "defaults"
+        }
+    }, 
+    "Viz": {
+        "addListeners(config)": {
+            "config": [
+                {
+                    "default": "{}", 
+                    "description": "This function takes an object where the keys are components or \"vizbodywide\" and the values are objects with keys of the event and value of the handler function. Ex: {\"vizbodywide\": {\"mousemove\": null, \"click\": someFunction}}", 
+                    "name": "config", 
+                    "type": "Object"
+                }
+            ], 
+            "description": "Allows listeners to be bound to the visualization", 
+            "example": "default"
+        }, 
+        "animation()": {
+            "config": [], 
+            "description": "getter/setter for the visualization animation config. If no param is passed will return the animation config. If you pass animation config, then it will update the viz animation settings. An animation config should look like this: {animation: {duration: 1000, delay: 10}}", 
+            "example": "#"
+        }, 
+        "body()": {
+            "config": [], 
+            "description": "getter for the visualization body. The body also has height() and width() getters.", 
+            "example": "#"
+        }, 
+        "container()": {
+            "config": [], 
+            "description": "Getter for the visualization container", 
+            "example": "#"
+        }, 
+        "data([data])": {
+            "config": [], 
+            "description": "getter/setter for the visualization data. If no param is passed will return data. If data is passed will update the visualization with new data.", 
+            "example": "line.example.html"
+        }, 
+        "defaults": {
+            "config": [
+                {
+                    "default": "auto", 
+                    "description": "Whether to automatically determine size of visualization. If false will used passed height and width.", 
+                    "name": "sizeMode", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Explicitly set width of viz.", 
+                    "name": "width", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "null", 
+                    "description": "Explicitly set height of viz.", 
+                    "name": "height", 
+                    "type": "Int"
+                }, 
+                {
+                    "default": "{top: 10, right: 10, bottom: 7, left: 7}", 
+                    "description": "The margin around your visualization.", 
+                    "name": "margin", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{top: \"auto\", right:\"auto\", bottom: \"auto\", left: \"auto\"}", 
+                    "description": "The padding for your visualization. Note axis labels are draw in the padding and the padding is auto calculated. Pass in values to set explicit padding.", 
+                    "name": "padding", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "{delay: 0, duration: 1000}", 
+                    "description": "Time configs for visualization animation. By default animation is one second long.", 
+                    "name": "animation", 
+                    "type": "Object"
+                }, 
+                {
+                    "default": "No Data Available", 
+                    "description": "The message to be shown when the visualization detects there is nothing being shown.", 
+                    "name": "noContentMessage", 
+                    "type": "String"
+                }, 
+                {
+                    "default": "false", 
+                    "description": "Whether the clear link should be displayed when a visualization is clickable. When clicked this will call all the registered components clear functions.", 
+                    "name": "visibleClear", 
+                    "type": "boolean"
+                }
+            ], 
+            "example": "line.example.html"
+        }, 
+        "elId()": {
+            "config": [], 
+            "description": "Gets the element id to which the viz is attached.", 
+            "example": "#"
+        }, 
+        "height()": {
+            "config": [], 
+            "description": "Getter for the visualization height", 
+            "example": "#"
+        }, 
+        "update(config)": {
+            "config": "defaults", 
+            "description": "Refreshes the visualization with the new passed configuration options.", 
+            "example": "#"
+        }, 
+        "viz(id, data, opts)": {
+            "config": "defaults", 
+            "description": "Constructor for visualizations. Invoke with sonic.viz(...). The id is the id for the div that will hold the visualization. The data is the data array to drive the visualization. The opts object is a config object holding initial configuration parameters.", 
+            "example": "default"
+        }, 
+        "width()": {
+            "config": [], 
+            "description": "Getter for visualization width", 
+            "example": "#"
+        }
+    }
+}

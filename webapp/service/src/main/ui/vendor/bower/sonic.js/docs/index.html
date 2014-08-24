@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <link href="css/sonic-js.css" rel="stylesheet" type="text/css">
+  <link href="docs.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="liblnk/colorbrewer/colorbrewer.js"></script>
+  <script type="text/javascript" src="liblnk/d3/d3.js"></script>
+  <script type="text/javascript" src="liblnk/queue-async/queue.min.js"></script>
+  <script type="text/javascript" src="liblnk/topojson/topojson.js"></script>
+  <script type="text/javascript" src="dist/sonic.js"></script>
+  <script type="text/javascript" src="utils.js"></script>
+</head>
+<body>
+  <div id="header">
+      <a href="index.html"><h1>Sonic.js</h1></a>
+  </div>
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="api.html">API documentation</a>
+            </li>
+        </ul>
+        <h3>Examples</h3>
+        <ul>
+            <li>
+                <a href="area.example.html">Area</a>
+            </li><li>
+                <a href="box_and_whisker.example.html">Box and whisker</a>
+            </li><li>
+                <a href="composed_box_and_whisker_hist.example.html">Box and whisker with histogram</a>
+            </li><li>
+                <a href="choropleth.example.html">Choropleth</a>
+            </li><li>
+                <a href="donut.example.html">Donut</a>
+            </li><li>
+                <a href="grouped_bars.example.html">Grouped bars</a>
+            </li><li>
+                <a href="hpie.example.html">Hpie</a>
+            </li><li>
+                <a href="index.html">Index</a>
+            </li><li>
+                <a href="line_difference.example.html">Line difference</a>
+            </li><li>
+                <a href="line.example.html">Line</a>
+            </li><li>
+                <a href="line_with_bar_density.example.html">Line with bar density</a>
+            </li><li>
+                <a href="line_with_overlays.example.html">Line with overlays</a>
+            </li><li>
+                <a href="matrix.example.html">Matrix</a>
+            </li><li>
+                <a href="network_force.example.html">Network force</a>
+            </li><li>
+                <a href="network_tree.example.html">Network tree</a>
+            </li><li>
+                <a href="punchcard.example.html">Punchcard</a>
+            </li><li>
+                <a href="scatter.example.html">Scatter</a>
+            </li><li>
+                <a href="significance_bars.example.html">Significance bars</a>
+            </li><li>
+                <a href="stacked_axis.example.html">Stacked axis</a>
+            </li><li>
+                <a href="stacked_with_scale.example.html">Stacked with scale</a>
+            </li>
+        </ul>
+    
+    </div>
+
+
+
+  <div id="main" class="index">
+      <button id="randomize">Randomize Data</button>
+      <div id="line-viz"></div>
+      <div id="bar-viz"></div>
+      <div id="donut-viz"></div>
+      <div id="bar-controls">
+        <input type="radio" name="bar" value="grouped" checked> Grouped <input type="radio" name="bar" value="stacked"> Stacked
+      </div>
+      <div id="matrix-viz"></div>
+      <div class="clear"></div>
+  </div>
+
+  <script type="text/javascript">
+    var Demonstration,
+      demo;
+
+    /**
+     * Demonstration class for rendering sonic visualizations
+     */
+    Demonstration = function () {
+        var data,
+            vizes = d3.map(),
+            groups = ['A', 'B', 'C'];
+
+        /**
+         * Constructor creates viz list, sets up the data
+         * and then draws the vizes
+         */
+        function D(vizArr) {
+            vizArr.forEach(function (d) {
+                vizes.set(d, null);
+            });
+            D.setData();
+            D.draw();
+        }
+
+        /**
+         * Sets up the data, so there are 3 series with a random 
+         * number of generated points, each with between 0 and 100 points.
+         */
+        D.setData = function () {
+            data = createPoints();
+        };
+
+        /**
+         * Randomize the data and update the vizes
+         */
+        D.randomize = function () {
+            D.setData();
+            D.update();
+        };
+
+        /**
+         * Draw the viz for each that has been added to this
+         * demo instance
+         */
+        D.draw = function () {
+            vizes.forEach(function(k, v) {
+                var fn = D['draw' + k + 'Viz'];
+                if (fn) {
+                    vizes.set(k, fn());
+                }
+            });
+        };
+
+        /**
+         * Update all current vizes.  If there's a custom 
+         * update function for any, use it, otherwise, just 
+         * call viz.data() on it.
+         */
+        D.update = function () {
+            vizes.forEach(function (k, v) {
+                var fn = D['update' + k + 'Viz'];
+                if (fn) {
+                    fn(v);
+                } else {
+                    v.data(data);
+                }
+            });
+        }
+
+        /**
+         * Draw a line viz of count over time
+         */
+        D.drawLineViz = function () {
+            var viz = sonic.viz('#line-viz', data, {
+                margin: {
+                    right: 20,
+                    left: 60
+                },
+                tooltip: true
+            })
+                .addXAxis({
+                    type: 'time',
+                    label: {
+                        text: 'Date'
+                    }
+                })
+                .addYAxis({
+                    label: {
+                        text: 'Count'
+                    }
+                })
+                .addLines({
+                    sort: true
+                });
+
+            return viz;
+        };
+
+        /**
+         * Draw a grouped bar viz that groups by 
+         * an arbitrary variable called group
+         */
+        D.drawBarViz = function () {
+            var viz;
+
+            viz = sonic.viz('#bar-viz', createGroupPoints(), {
+                margin: {
+                    right: 20,
+                    left: 60
+                },
+                tooltip: true
+            })
+                .addXAxis({
+                    type: 'ordinal',
+                    ticks: {
+                        formatFn: function (val) {
+                            return groups[val];
+                        }
+                    },
+                    label: {
+                        text: 'Group'
+                    }
+                })
+                .addYAxis({
+                    min: 0,
+                    label: {
+                        text: 'Count'
+                    }
+                })
+                .addBars();
+
+            return viz;
+        };
+
+        /**
+         * Update the bar viz
+         */
+        D.updateBarViz = function (v) {
+            v.data(createGroupPoints());
+        };
+
+        /**
+         * Change the bar viz's type from 
+         * grouped to stacked or vice-versa
+         */
+        D.changeBarType = function () {
+            vizes.get('Bar').updateBars({}, {
+              type: this.value
+            });
+        };
+
+        /**
+         * Draw the donut viz of the % breakdown 
+         * between the series
+         */
+        D.drawDonutViz = function () {
+            var viz = sonic.viz('#donut-viz', createAggregatePoints(), {
+                margin: {
+                    right: 0,
+                    left: 0,
+                    top: 0,
+                    bottom: 0
+                }
+            })
+                .addPie({
+                    tooltip: {
+                        renderFn: function renderTooltips(cps, mouse) {
+                            return cps.map(function (cp) {
+                                var html = '<p>';
+                                html = html + '<b>' + cp.data.id + ': </b>' +
+                                    Math.round((cp.endAngle - cp.startAngle) / (2 * Math.PI) * 100 * 10) / 10
+                                    + '%<br />';
+                                return html + '</p>';
+                            }).reduce(function (last, curr) {
+                                return last + curr;
+                            });
+                        }
+                    }
+                });
+
+            return viz;
+        };
+
+        /**
+         * Update the donut viz
+         */
+        D.updateDonutViz = function (v) {
+            v.data(createAggregatePoints());
+        }
+
+        /**
+         * Draw the matrix viz which shows total counts
+         * across all series broken down by day of week
+         * and time of day.
+         */
+        D.drawMatrixViz = function () {
+            var viz;
+
+            viz = sonic.viz('#matrix-viz', createMatrixPoints(), {
+                margin: {
+                    right: 20,
+                    left: 60
+                },
+                tooltip: true
+            })
+                .addXAxis({
+                    type: 'ordinal',
+                    label: {
+                        text: 'Time of Day'
+                    }
+                })
+                .addYAxis({
+                    type: 'ordinal',
+                    label: {
+                        text: 'Day of Week'
+                    }
+                })
+                .addMatrix();
+
+            return viz;
+        };
+
+        /**
+         *  Update matrix viz
+         */
+        D.updateMatrixViz = function (v) {
+            v.data(createMatrixPoints());
+        };
+
+        return D;
+    }
+
+    //new Demonstration instance
+    demo = Demonstration();
+    //call constructor with desired viz types
+    demo(['Line', 'Bar', 'Donut', 'Matrix']);
+    //add listener to randomize button and randomize when clicked
+    d3.select('#randomize').on('click', demo.randomize);
+    //add listener to bar viz type switcher radio button and update bars accordingly
+    d3.selectAll('input[name=bar]').on('change', demo.changeBarType);
+  </script>
+  <script src="http://localhost:35729/livereload.js"></script>
+</body>

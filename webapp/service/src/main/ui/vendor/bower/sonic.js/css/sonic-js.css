@@ -1,0 +1,63 @@
+.sonic-pie text {
+    font-size: 10px;
+    font-family: sans-serif;
+}
+
+.sonic-axis {
+    shape-rendering: crispEdges;
+}
+
+.sonic-axis line {
+    stroke:#000000;
+    stroke-width: 2px;
+}
+
+.sonic-axis .domain {
+    fill: none;
+    stroke: #000000;
+    stroke-width: 2px;
+}
+
+.sonic-axis.minor line {
+    stroke: #EEEEEE;
+    stroke-width: 1px;
+}
+
+.sonic-axis > text.sonic-label {
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.sonic-axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+.sonic-geo-polygon-highlight {
+    stroke: #FFFF00;
+    stroke-width: 3px;
+}
+
+.sonic-tooltip {
+    position: absolute;
+    text-align: left;
+    padding: 5px;
+    font-size: 10px;
+    background-color: #000;
+    color: #ffffff;
+    border: solid 1px white;
+    border-radius: 6px;
+    pointer-events: none;
+    opacity: 0.75;
+}
+
+.sonic-clear-link {
+  fill: #578697;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.sonic-clear-link:hover {
+  text-decoration:underline;
+}

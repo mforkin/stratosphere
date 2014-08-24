@@ -1,0 +1,29 @@
+{
+  "name": "sonic.js",
+  "version": "0.5.49",
+  "ignore": [
+    "examples",
+    "test",
+    "Gruntfile.js",
+    ".gitignore",
+    ".jshintrc",
+    ".bowerrc"
+  ],
+  "dependencies": {
+    "d3": "~3.4.4",
+    "queue-async": "~1.0.4",
+    "topojson": "~1.2.3",
+    "colorbrewer": "~1.0.0",
+    "highlightjs": "~8.0.0"
+  },
+  "homepage": "https://github.com/ccri/sonic.js",
+  "_release": "0.5.49",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.5.49",
+    "commit": "6c270e3d230cd85bb1efb4002642755e79fd71c9"
+  },
+  "_source": "git@github.com:ccri/sonic.js.git",
+  "_target": "v0.5.x",
+  "_originalSource": "git@github.com:ccri/sonic.js.git"
+}

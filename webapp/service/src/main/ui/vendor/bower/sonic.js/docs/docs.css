@@ -1,0 +1,225 @@
+/****** Application Styles ******/
+
+#header {
+    background-image: -ms-linear-gradient(bottom, #333 0%, #444 100%);
+    background-image: -moz-linear-gradient(bottom, #333 0%, #444 100%);
+    background-image: -o-linear-gradient(bottom, #333 0%, #444 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #333), color-stop(1, #444));
+    background-image: -webkit-linear-gradient(bottom, #333 0%, #444 100%);
+    background-image: linear-gradient(to top, #333 0%, #444 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#444', EndColorStr='#333'); /* IE6,IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#444', EndColorStr='#333')"; /* IE8,IE9 */
+}
+#header a {
+    color: #FFF;
+    text-decoration: none;
+}
+#header a:hover {
+    color: #CCC;
+}
+/* code */
+code.javascript {
+    padding: 15px;
+}
+
+body {
+    margin: 0px;
+    background-color: #F5F5F5;
+    font-family: sans-serif;
+}
+
+#header h1 {
+    padding: 5px 10px;
+    margin: 0px;
+}
+
+#main {
+    background-color: #FFF;
+    margin: 0px auto;
+    padding: 20px;
+    width: 80%;
+}
+
+#main.index {
+    width: auto;
+    margin: 0 0 0 200px;
+}
+
+#main section {
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+    border-bottom: 2px solid #CCC;
+}
+.nav {
+    width: 200px;
+    float: left;
+    padding-left: 20px;
+}
+.nav h3 {
+    padding: 0;
+    margin: 5px 0;
+}
+.nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+.nav ul li {
+    margin-bottom: 4px;
+}
+.nav ul li a {
+    color: #336699;
+    text-decoration: none;
+}
+.nav ul li a:hover {
+    color: #FF8800;
+}
+
+.base-viz {
+    height: 300px;
+    width: 100%;
+    position: relative;
+    float: left;
+}
+
+#viz {
+    height: 300px;
+    width: 100%;
+    position: relative;
+    float: left;
+}
+
+#line-viz {
+    height: 300px;
+    width: 100%;
+    position: relative;
+    float: left;
+}
+
+#bar-viz {
+    height: 300px;
+    width: 50%;
+    position: relative;
+    float: left;
+}
+
+#donut-viz {
+    height: 500px;
+    width : 500px;
+    position: relative;
+}
+
+#bar-controls {
+    height: 50px;
+    width: 50%;
+    position: relative;
+    float: left;
+}
+
+#bar-controls input {
+    margin-left: 90px;
+}
+
+#donut-viz {
+    height: 300px;
+    width: 50%;
+    position: relative;
+    float: left;
+}
+
+#matrix-viz {
+    height: 300px;
+    width: 100%;
+    position: relative;
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+/* Docs */
+#main.docs h3 {
+    background-image: -ms-linear-gradient(bottom, #333 0%, #444 100%);
+    background-image: -moz-linear-gradient(bottom, #333 0%, #444 100%);
+    background-image: -o-linear-gradient(bottom, #333 0%, #444 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #333), color-stop(1, #444));
+    background-image: -webkit-linear-gradient(bottom, #333 0%, #444 100%);
+    background-image: linear-gradient(to top, #333 0%, #444 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#444', EndColorStr='#333'); /* IE6,IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#444', EndColorStr='#333')"; /* IE8,IE9 */
+    color: #FFF;
+    padding: 5px;
+}
+#main.docs #toc:before,
+#main.docs #toc:after {
+    content: " ";
+    display: table;
+}
+#main.docs #toc:after {
+    clear: both;
+}
+
+#main.docs #toc h3  {
+    border-bottom: 2px solid #CCC;
+    background: none !important;
+    padding-left: 0;
+    color: #333;
+}
+#main.docs #toc section {
+    float: left;
+    min-width: 250px;
+    min-height: 250px;
+    margin-right: 10px;
+}
+#main.docs #toc ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+#main.docs #toc ul li {
+    margin-bottom: 5px;
+}
+#main.docs #toc ul li a {
+    text-decoration: none;
+    color: #336699;
+}
+#main.docs section {
+    border: none;
+}
+#main.docs .api-detail h3 {
+    border-radius: 5px;
+}
+#main.docs .api-detail {
+}
+#main.docs .api-detail .example {
+    margin-bottom: 20px;
+}
+#main.docs table {
+    font-size: 0.9em;
+    border-collapse: collapse;
+    color: #333;
+}
+#main.docs table th {
+    background: #586e75;
+    color: #fdf6e3;
+}
+#main.docs table th, #main.docs table td {
+    text-align: left;
+    border: 1px solid #999;
+    padding: 0.5em;
+}
+#main.docs table tr:nth-child(odd) {
+    background: #F5F5F5;
+}
+#main.docs table tr td:first-child {
+    font-weight: bold;
+}
+#main.docs table tr td:nth-child(0n+2),
+#main.docs table tr td:nth-child(0n+3) {
+    font-family: monospace;
+}
+#main.docs table tr td:nth-child(0n+2) {
+    color: #2aa198;
+}
+#main.docs table tr:first-child {
+}
