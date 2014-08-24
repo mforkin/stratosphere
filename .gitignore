@@ -1,5 +1,6 @@
 *.iml
 *.idea
+*.swp
 target
 nodejs
 node_modules
