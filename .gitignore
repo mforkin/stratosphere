@@ -4,7 +4,6 @@
 target
 nodejs
 node_modules
-vender/*
 __pycache__
 *.pyc
 *$py.class
