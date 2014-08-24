@@ -1,0 +1,77 @@
+// Main stylus file. 
+@import '../../vendor/bower/bootstrap/dist/css/bootstrap.min.css'
+@import '../../vendor/bower/font-awesome/css/font-awesome.min.css'
+@import '../../vendor/bower/sonic.js/css/sonic-js.css'
+@import '../../vendor/bower/leaflet-dist/leaflet.css'
+// http://visionmedia.github.io/nib/
+@import 'nib'
+@import 'mixins'
+@import 'vars'
+@import 'masthead'
+
+.ehmc-image-pane
+    z-index 2000
+    position fixed
+    text-align center
+    top 50px
+    left 0px
+    bottom 0px
+    width 400px
+    background #DFDFDf
+    border-right 1px solid #CCC
+    box-shadow 2px 0px 6px 0px rgba(0,0,0,0.3)
+    .ehmc-image-cnt
+        overflow auto
+        position absolute
+        top 80px
+        bottom 0px
+        left 0px
+        right 0px
+        .image-cnt
+            img
+                height 300px
+                width 300px
+            margin-bottom 10px
+
+.ehmc-content-pane
+    position absolute
+    top 50px
+    left 400px
+    bottom 0px
+    right 0px
+
+.ehmc-map
+    position absolute
+    top 0px
+    right 0px
+    height 50%
+    left 0px
+
+.ehmc-viz-cnt
+    z-index 1999
+    position fixed
+    top 50%
+    bottom 0px
+    left 400px
+    right 0px
+    border-top 1px solid #BBB
+    box-shadow 2px 0px 6px 0px rgba(0,0,0,0.3)
+    background #CCC
+
+
+
+
+
+@font-face
+    font-family 'FontAwesome'
+    src url('../assets/fontawesome-webfont.eot?v=4.0.3')
+    src url('../assets/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), url('../assets/fontawesome-webfont.woff?v=4.0.3') format('woff'), url('../assets/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), url('../assets/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
+    font-weight normal
+    font-style normal
+
+@font-face
+    font-family 'Glyphicons Halflings'
+    src url('../assets/glyphicons-halflings-regular.eot')
+    src url('../assets/glyphicons-halflings-regular.eot') format('embedded-opentype'), url('../assets/glyphicons-halflings-regular.woff') format('woff'), url('../assets/glyphicons-halflings-regular.ttf') format('truetype'), url('../assets/glyphics-halflings-regular.svg') format('svg');
+    font-weight normal
+    font-style normal

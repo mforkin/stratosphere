@@ -1,0 +1,9 @@
+<Context path="/" reloadable="true">
+    <Resource name="jdbc/MissionControlDS" auth="Container" type="javax.sql.DataSource"
+              username="${db.username}"
+              password="${db.password}"
+              driverClassName="org.postgresql.Driver"
+              url="${db.url.base}/${db.name}"
+              maxActive="15"
+              maxIdle="7"/>
+</Context>

@@ -1,0 +1,18 @@
+<div ng-controller="HomeController">
+    <div class="ehmc-image-pane">
+        <h1>Image Stream</h1>
+        <div class="ehmc-image-cnt">
+            <div class="image-cnt" ng-repeat="i in stream.images">
+                <img ng-src="{{i.url}}" />
+            </div>
+        </div>
+    </div>
+    <div class="ehmc-content-pane">
+        <ehmc-map id="map" data="stream.data"></ehmc-map>
+
+        <div class="ehmc-viz-cnt">
+            <h1>Viz Panel - {{stream.connection}} - {{stream.data.length}}</h1>
+            <linechart datakey="altitudeViz.dataKey" data="stream.data" ylabel="altitudeViz.ylabel" color="altitudeViz.color"></linechart>
+        </div>
+    </div>
+</div>
