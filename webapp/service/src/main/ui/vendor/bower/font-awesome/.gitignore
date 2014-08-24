@@ -4,6 +4,7 @@
 *.db.old
 *.swp
 *.db-journal
+src
 
 .coverage
 .DS_Store
